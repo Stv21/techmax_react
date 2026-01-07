@@ -104,10 +104,12 @@ function Header({ onSubItemClick }) {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
-        <div className="logo">
+        <div 
+          className="logo"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          style={{ cursor: 'pointer' }}
+        >
           <img src="/img/logo1.png" alt="TechMax" />
-          
-
         </div>
         
         <button 

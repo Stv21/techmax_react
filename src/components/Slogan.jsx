@@ -40,8 +40,7 @@ function Slogan() {
           ref={taglineRef}
           className={`tagline ${isVisible ? 'animate' : ''}`}
         >
-          <p className="tagline-text">Smart Gates.</p>
-          <p className="tagline-subtext">Seamless Transit</p>
+          <p className="tagline-subtext">Infrastructure to Intelligence</p>
         </div>
       </div>
     </div>
@@ -49,3 +48,4 @@ function Slogan() {
 }
 
 export default Slogan;
+

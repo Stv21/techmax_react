@@ -4,9 +4,13 @@ function About() {
   return (
     <section className="about-section">
       <div className="about-container">
-        <h2 className="about-heading">About Sharteck</h2>
+        <h2 className="about-heading">About SAARTECH</h2>
         <p className="about-description">
-          With a proven portfolio of IT Solutions & Services, Saartech has been delivering IT Infrastructure- Products, Services & Solutions and Business Software Solutions to a wide range of industry verticals including - Banking and Financial Services, Retail Distribution, Pharmaceuticals, Utilities and Real Estate. It's ready to deploy product portfolio comprises of turnkey IT Solutions that help new age businesses leverage varied sets of business data and information.
+          We are a technology-driven AFC solutions provider specializing in the design, development, and execution of Automatic Fare Collection systems for metro, BRT, and urban transit networks.
+
+Our strength lies in combining deep technical expertise with on-ground execution capability. From AFC system architecture and software platforms to control center infrastructure and full lifecycle project delivery, we support transit authorities in building reliable, secure, and future-ready fare collection ecosystems.
+
+We operate with a clear focus on performance, compliance, and operational continuity, ensuring AFC systems remain dependable throughout their revenue lifecycle.
         </p>
         <button className="know-more-btn">Know More</button>
         
