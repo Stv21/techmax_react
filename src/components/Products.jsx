@@ -1,8 +1,18 @@
 import './Products.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Solutions() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
   const solutions = [
     {
@@ -31,7 +41,9 @@ function Solutions() {
     }
   ];
 
-  const maxSlide = solutions.length - 3;
+  // Mobile shows 1 card, desktop shows 3 cards
+  const cardsPerView = isMobile ? 1 : 3;
+  const maxSlide = solutions.length - cardsPerView;
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev >= maxSlide ? 0 : prev + 1));
@@ -52,7 +64,7 @@ function Solutions() {
           <div className="solutions-carousel">
             <div 
               className="solutions-track" 
-              style={{ transform: `translateX(-${currentSlide * (100 / 3)}%)` }}
+              style={{ transform: `translateX(-${currentSlide * (100 / cardsPerView)}%)` }}
             >
               {solutions.map((solution, index) => (
                 <div key={index} className="solution-card">
