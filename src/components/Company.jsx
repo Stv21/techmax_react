@@ -40,25 +40,15 @@ function Company() {
 
   return (
     <div className="company-page">
-      {/* Hero Section */}
-      <section className="company-hero">
-        <div className="company-hero-content">
-          <h1 className="company-hero-title">About SAARTECH</h1>
-          <p className="company-hero-subtitle">Innovating Technology Solutions Since 2015</p>
-        </div>
-      </section>
-
       <div className="company-container">
         {/* About Us Section */}
         <section id="about-us" className="company-section">
           <h2 className="section-heading">About Us</h2>
           <p className="company-description">
-            We are a technology-driven AFC solutions provider specializing in the design, development, and execution of Automatic Fare Collection systems for metro, BRT, and urban transit networks.
-          </p>
-          <p className="company-description">
+            We are a technology-driven AFC solutions provider specializing in the design, development, and execution of Automatic Fare Collection systems for metro, BRT, and urban transit networks. <br/>
+          
             Our strength lies in combining deep technical expertise with on-ground execution capability. From AFC system architecture and software platforms to control center infrastructure and full lifecycle project delivery, we support transit authorities in building reliable, secure, and future-ready fare collection ecosystems.
-          </p>
-          <p className="company-description">
+            <br/>  
             We operate with a clear focus on performance, compliance, and operational continuity, ensuring AFC systems remain dependable throughout their revenue lifecycle.
           </p>
         </section>

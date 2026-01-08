@@ -7,7 +7,6 @@ function About() {
   return (
     <section className="about-section">
       <div className="about-container">
-        <h2 className="about-heading">About SAARTECH</h2>
         <p className="about-description">
           We are a technology-driven AFC solutions provider specializing in the design, development, and execution of Automatic Fare Collection systems for metro, BRT, and urban transit networks.
 
