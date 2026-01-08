@@ -222,7 +222,7 @@ nav {
 }
 
 .nav-item:hover .nav-link {
-  color: white;
+  color: black;
 }
 
 /* Dropdown */
