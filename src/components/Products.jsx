@@ -54,7 +54,7 @@ function Solutions() {
   };
   
   return (
-    <section className="solutions-section">
+    <section id="solutions" className="solutions-section">
       <div className="solutions-container">
         <h2 className="solutions-heading">Our Solutions</h2>
         <div className="carousel-wrapper">

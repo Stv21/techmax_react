@@ -16,7 +16,7 @@ const navigationData = [
   },
   {
     name: 'SOLUTIONS',
-    items: ['PAYMENT SOLUTIONS', 'TECHNOLOGY PLATFORM', 'MOBILE APPS', 'API SERVICES']
+    scrollTo: 'solutions'
   },
   {
     name: 'PARTNERS',
@@ -177,7 +177,7 @@ function Header({ onSubItemClick }) {
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="header-container">
+      <div className="header-container" style={{ paddingRight: 0 }}>
         <div 
           className="logo"
           onClick={() => {

@@ -14,7 +14,7 @@ function Footer() {
             </div>
             <div className="contact-info">
               <h3>Find us</h3>
-              <p>281-283, V-Mall, Near Sai Dham, W.E<br />Highway,Kandivali(East), Mumbai-400101.</p>
+              <p>Plot No. 4, Kh. - 569, Khatu Shyam Homes, Green Enclave,Chipiyana, Gautam Buddha Nagar, <br /> Uttar Pradesh, 201009.</p>
             </div>
           </div>
           
@@ -26,7 +26,7 @@ function Footer() {
             </div>
             <div className="contact-info">
               <h3>Call us</h3>
-              <p>+91 22 28700178/ +91 22 28700179/<br />+91 22 28700180</p>
+              <p>+91 8598790105</p>
             </div>
           </div>
           

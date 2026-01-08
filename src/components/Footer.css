@@ -1,2 +1,5 @@
 /* Footer styles are in main styles.css */
 
+.contact-info p {
+  font-size: 0.8rem; ;
+}
