@@ -1,11 +1,18 @@
 import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Header.css';
 
 // Navigation data structure with dropdown items
 const navigationData = [
   {
     name: 'COMPANY',
-    items: ['ABOUT US', 'MISSION & VISION', 'OUR TEAM', 'COMPANY HISTORY']
+    path: '/company',
+    items: [
+      { name: 'ABOUT US', anchor: 'about-us' },
+      { name: 'MISSION & VISION', anchor: 'mission-vision' },
+      { name: 'OUR TEAM', anchor: 'our-team' },
+      { name: 'COMPANY HISTORY', anchor: 'company-history' }
+    ]
   },
   {
     name: 'SOLUTIONS',
@@ -24,6 +31,8 @@ const navigationData = [
 // Navigation item component with dropdown or scroll link
 const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
   
   // If it's a scroll link
   if (navItem.scrollTo) {
@@ -34,9 +43,19 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
           className="nav-link"
           onClick={(e) => {
             e.preventDefault();
-            const element = document.getElementById(navItem.scrollTo);
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth' });
+            if (location.pathname !== '/') {
+              navigate('/');
+              setTimeout(() => {
+                const element = document.getElementById(navItem.scrollTo);
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }, 100);
+            } else {
+              const element = document.getElementById(navItem.scrollTo);
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
             }
             if (onMobileClose) onMobileClose();
           }}
@@ -47,7 +66,61 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
     );
   }
   
-  // If it's a dropdown
+  // If it's a Company link with dropdown
+  if (navItem.path === '/company') {
+    return (
+      <li 
+        className="nav-item"
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}
+      >
+        <span 
+          className="nav-link" 
+          onClick={() => {
+            navigate('/company');
+            if (onMobileClose) onMobileClose();
+          }}
+        >
+          {navItem.name}
+        </span>
+        {isOpen && (
+          <ul className="dropdown">
+            {navItem.items.map((item, index) => (
+              <li key={index}>
+                <a 
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (location.pathname === '/company') {
+                      // Already on company page, just scroll
+                      const element = document.getElementById(item.anchor);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    } else {
+                      // Navigate to company page then scroll
+                      navigate('/company');
+                      setTimeout(() => {
+                        const element = document.getElementById(item.anchor);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }, 300);
+                    }
+                    if (onMobileClose) onMobileClose();
+                  }}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    );
+  }
+  
+  // If it's a regular dropdown (Solutions)
   return (
     <li 
       className="nav-item"
@@ -80,6 +153,7 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
 function Header({ onSubItemClick }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -106,7 +180,10 @@ function Header({ onSubItemClick }) {
       <div className="header-container">
         <div 
           className="logo"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => {
+            navigate('/');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           style={{ cursor: 'pointer' }}
         >
           <img src="/img/logo1.png" alt="TechMax" />

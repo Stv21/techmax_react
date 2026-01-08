@@ -6,6 +6,9 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+html.home-page {
   scroll-snap-type: y mandatory;
 }
 

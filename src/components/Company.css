@@ -1,0 +1,598 @@
+/* Company Page Styles */
+.company-page {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  min-height: 100vh;
+  color: white;
+  scroll-snap-type: none !important;
+  overflow-y: auto;
+}
+
+.company-page * {
+  scroll-snap-align: none !important;
+  scroll-snap-stop: normal !important;
+}
+
+.company-page section {
+  scroll-snap-align: none !important;
+}
+
+/* Hero Section */
+.company-hero {
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.2), rgba(255, 140, 0, 0.05));
+  padding: 150px 20px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.company-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 140, 0, 0.1) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.company-hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.company-hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  background: linear-gradient(90deg, white, #ff8c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  display: inline-block;
+}
+
+.company-hero-subtitle {
+  font-size: 1.5rem;
+  color: #ccc;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+/* Container */
+.company-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.company-section {
+  margin-bottom: 100px;
+  scroll-margin-top: 80px;
+}
+
+/* Section Heading */
+.section-heading {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+  letter-spacing: -1px;
+  position: relative;
+  display: block;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ff8c00, transparent);
+  border-radius: 2px;
+}
+
+/* About Us Section */
+.company-description {
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.features-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.feature-item {
+  text-align: center;
+  min-width: 150px;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #ff8c00;
+}
+
+.feature-text {
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Mission & Vision Section */
+.mission-vision-section {
+  padding: 60px 20px;
+  background: rgba(255, 140, 0, 0.03);
+  border-radius: 20px;
+}
+
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mission-card,
+.vision-card {
+  background: #2a2a2a;
+  padding: 40px;
+  border-radius: 16px;
+  border: 2px solid #3a3a3a;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-card::before,
+.vision-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff8c00, #ffa500);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.mission-card:hover::before,
+.vision-card:hover::before {
+  transform: scaleX(1);
+}
+
+.mission-card:hover,
+.vision-card:hover {
+  border-color: #ff8c00;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  color: #ff8c00;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.card-text {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.mission-list {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.8;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mission-list li {
+  padding-left: 25px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.mission-list li::before {
+  content: '•';
+  color: #ff8c00;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: -3px;
+}
+
+/* Team Section */
+.team-section {
+  padding: 0px 20px 60px;
+}
+
+.team-intro {
+  color: #ccc;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-card {
+  background: #2a2a2a;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #3a3a3a;
+  transition: all 0.4s ease;
+}
+
+.team-card:hover {
+  border-color: #ff8c00;
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(255, 140, 0, 0.3);
+}
+
+.team-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.team-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.team-card:hover .team-image {
+  transform: scale(1.1);
+}
+
+.team-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 140, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.team-card:hover .team-overlay {
+  opacity: 1;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  background: white;
+  color: #ff8c00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  transform: scale(1.2);
+  background: #1a1a1a;
+  color: white;
+}
+
+.team-name {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.team-role {
+  color: #ff8c00;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Company History Section */
+.history-section {
+  padding: 60px 20px;
+  background: rgba(255, 140, 0, 0.03);
+  border-radius: 20px;
+}
+
+.timeline {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 50px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #ff8c00, #ffa500, #ff8c00);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+  padding-left: 40px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -41px;
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  background: #ff8c00;
+  border: 3px solid #1a1a1a;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+}
+
+.timeline-year {
+  color: #ff8c00;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.timeline-title {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.timeline-text {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .company-hero-title {
+    font-size: 3rem;
+  }
+
+  .company-hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .section-heading {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .company-hero {
+    padding: 90px 20px 50px;
+  }
+
+  .company-hero-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    padding: 15px 0;
+  }
+
+  .company-hero-subtitle {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .company-container {
+    padding: 30px 15px;
+  }
+
+  .company-section {
+    margin-bottom: 60px;
+  }
+
+  .section-heading {
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+  }
+
+  .company-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .features-container {
+    gap: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .feature-item {
+    width: 100%;
+  }
+
+  .mission-vision-section,
+  .team-section,
+  .history-section {
+    padding: 35px 15px;
+  }
+
+  .mission-card,
+  .vision-card {
+    padding: 25px 18px;
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .mission-list li {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    padding-left: 22px;
+  }
+
+  .team-intro {
+    font-size: 1rem;
+    margin-bottom: 35px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .team-card {
+    padding: 18px;
+  }
+
+  .team-name {
+    font-size: 1.1rem;
+  }
+
+  .team-role {
+    font-size: 0.9rem;
+  }
+
+  .timeline {
+    padding-left: 30px;
+  }
+
+  .timeline::before {
+    left: 12px;
+    width: 2px;
+  }
+
+  .timeline-item {
+    padding-left: 25px;
+    margin-bottom: 40px;
+  }
+
+  .timeline-item::before {
+    left: -28px;
+    width: 12px;
+    height: 12px;
+    border-width: 2px;
+  }
+
+  .timeline-year {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .timeline-title {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .timeline-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+/* Extra Small Screens */
+@media screen and (max-width: 480px) {
+  .company-hero-title {
+    font-size: 1.8rem;
+    padding: 12px 0;
+  }
+
+  .company-hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .section-heading {
+    font-size: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .timeline-year {
+    font-size: 1.1rem;
+  }
+}

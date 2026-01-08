@@ -1,1 +1,16 @@
 /* This file intentionally left empty - styles are in main styles.css */
+
+.expanded-content {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
