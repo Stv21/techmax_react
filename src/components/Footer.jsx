@@ -26,7 +26,7 @@ function Footer() {
             </div>
             <div className="contact-info">
               <h3>Call us</h3>
-              <p>+91 8598790105</p>
+              <p>+91 8595790105</p>
             </div>
           </div>
           

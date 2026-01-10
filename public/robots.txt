@@ -1,0 +1,31 @@
+# Robots.txt for TechMax React
+# Allow all crawlers to index the site
+
+User-agent: *
+Allow: /
+Allow: /*.js
+Allow: /*.css
+Allow: /img/
+Allow: /video/
+
+# Disallow private pages if any
+Disallow: /private/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+
+# Crawl delay for resource management
+Crawl-delay: 1
+
+# Tell Google about sitemaps
+Sitemap: https://www.techmax.com/sitemap.xml
+
+# Google specific settings
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing specific settings
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

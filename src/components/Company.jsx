@@ -105,26 +105,28 @@ function Company() {
         {/* Company History */}
         <section id="company-history" className="company-section history-section">
           <h2 className="section-heading">Company History</h2>
-          <div className="timeline">
+          <div className="timeline-horizontal">
             <div className="timeline-item">
-              <div className="timeline-year">2015</div>
               <div className="timeline-content">
+                <div className="timeline-year">2015</div>
                 <h3 className="timeline-title">Foundation</h3>
                 <p className="timeline-text">
                   SAARTECH was founded with a vision to revolutionize the technology solutions industry. 
                   Started with a small team of 5 dedicated professionals in a single office.
                 </p>
               </div>
+              <div className="timeline-dot"></div>
             </div>
             <div className="timeline-item">
-              <div className="timeline-year">2017</div>
               <div className="timeline-content">
+                <div className="timeline-year">2017</div>
                 <h3 className="timeline-title">First Major Contract</h3>
                 <p className="timeline-text">
                   Secured our first major metro transit project, establishing ourselves as a reliable AFC solutions provider. 
                   Expanded team to 25 members and opened a second regional office.
                 </p>
               </div>
+              <div className="timeline-dot"></div>
             </div>
             <div className="timeline-item">
               <div className="timeline-year">2019</div>
@@ -135,26 +137,29 @@ function Company() {
                   and excellence in technology implementation. Team grew to 100+ professionals.
                 </p>
               </div>
+              <div className="timeline-dot"></div>
             </div>
             <div className="timeline-item">
-              <div className="timeline-year">2022</div>
               <div className="timeline-content">
+                <div className="timeline-year">2022</div>
                 <h3 className="timeline-title">International Presence</h3>
                 <p className="timeline-text">
                   Launched international operations with projects in Southeast Asia and Middle East. 
                   Established strategic partnerships with global technology leaders and R&D center.
                 </p>
               </div>
+              <div className="timeline-dot"></div>
             </div>
             <div className="timeline-item">
-              <div className="timeline-year">2026</div>
               <div className="timeline-content">
+                <div className="timeline-year">2026</div>
                 <h3 className="timeline-title">Innovation Leader</h3>
                 <p className="timeline-text">
                   Now recognized as an industry leader with 300+ employees, serving 50+ major transit authorities 
                   and enterprises. Continuing to push boundaries with AI-driven solutions and smart city initiatives.
                 </p>
               </div>
+              <div className="timeline-dot"></div>
             </div>
           </div>
         </section>

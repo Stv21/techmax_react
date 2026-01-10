@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Slogan from './components/Slogan'
@@ -7,8 +7,11 @@ import Solutions from './components/Products'
 import Partners from './components/Partners'
 import Content from './components/Content'
 import Footer from './components/Footer'
-import Company from './components/Company'
 import './App.css'
+
+// Lazy load heavy components
+const Company = lazy(() => import('./components/Company'))
+const NotFound = lazy(() => import('./components/NotFound'))
 
 function HomePage({ onSubItemClick }) {
   return (
@@ -53,10 +56,26 @@ function App() {
     <Router>
       <ScrollToTop />
       <Header onSubItemClick={handleSubItemClick} />
-      <Routes>
-        <Route path="/" element={<HomePage onSubItemClick={handleSubItemClick} />} />
-        <Route path="/company" element={<Company />} />
-      </Routes>
+      <Suspense fallback={
+        <div style={{ 
+          minHeight: '100vh', 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center',
+          background: 'linear-gradient(90deg, #fc4a1a 0%, #f7b733 100%)',
+          color: 'white',
+          fontSize: '1.5rem',
+          fontWeight: '600'
+        }}>
+          Loading...
+        </div>
+      }>
+        <Routes>
+          <Route path="/" element={<HomePage onSubItemClick={handleSubItemClick} />} />
+          <Route path="/company" element={<Company />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
       <Footer />
     </Router>
   )
