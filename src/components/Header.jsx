@@ -16,7 +16,7 @@ const navigationData = [
   },
   {
     name: 'SOLUTIONS',
-    scrollTo: 'solutions'
+    path: '/solutions'
   },
   {
     name: 'PARTNERS',
@@ -116,6 +116,23 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
             ))}
           </ul>
         )}
+      </li>
+    );
+  }
+  
+  // If it's a simple route link (e.g., /solutions)
+  if (navItem.path) {
+    return (
+      <li className="nav-item">
+        <span 
+          className="nav-link" 
+          onClick={() => {
+            navigate(navItem.path);
+            if (onMobileClose) onMobileClose();
+          }}
+        >
+          {navItem.name}
+        </span>
       </li>
     );
   }

@@ -18,7 +18,7 @@ Disallow: /*.json$
 Crawl-delay: 1
 
 # Tell Google about sitemaps
-Sitemap: https://www.techmax.com/sitemap.xml
+Sitemap: https://www.saartechs.com/sitemap.xml
 
 # Google specific settings
 User-agent: Googlebot

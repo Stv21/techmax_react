@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Header from './components/Header'
 import Slogan from './components/Slogan'
 import About from './components/About'
-import Solutions from './components/Products'
+import SolutionsSection from './components/Products'
 import Partners from './components/Partners'
 import Content from './components/Content'
 import Footer from './components/Footer'
@@ -11,6 +11,7 @@ import './App.css'
 
 // Lazy load heavy components
 const Company = lazy(() => import('./components/Company'))
+const Solutions = lazy(() => import('./components/Solutions'))
 const NotFound = lazy(() => import('./components/NotFound'))
 
 function HomePage({ onSubItemClick }) {
@@ -18,7 +19,7 @@ function HomePage({ onSubItemClick }) {
     <>
       <Slogan />
       <About />
-      <Solutions />
+      <SolutionsSection />
       <Partners />
       <Content activeContent={null} />
     </>
@@ -72,6 +73,7 @@ function App() {
       }>
         <Routes>
           <Route path="/" element={<HomePage onSubItemClick={handleSubItemClick} />} />
+          <Route path="/solutions" element={<Solutions />} />
           <Route path="/company" element={<Company />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

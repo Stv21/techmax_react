@@ -58,7 +58,7 @@ function Footer() {
       
       <div className="footer-bottom">
         <div className="footer-container">
-          <p className="copyright">Copyright © 2024, All Right Reserved <strong>saartech</strong></p>
+          <p className="copyright">Copyright © 2026, All Right Reserved <strong>saartech</strong></p>
           <div className="footer-bottom-links">
             <a href="#">Home</a>
             <a href="#">Terms</a>

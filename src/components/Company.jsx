@@ -45,11 +45,9 @@ function Company() {
         <section id="about-us" className="company-section">
           <h2 className="section-heading">About Us</h2>
           <p className="company-description">
-            We are a technology-driven AFC solutions provider specializing in the design, development, and execution of Automatic Fare Collection systems for metro, BRT, and urban transit networks. <br/>
-          
-            Our strength lies in combining deep technical expertise with on-ground execution capability. From AFC system architecture and software platforms to control center infrastructure and full lifecycle project delivery, we support transit authorities in building reliable, secure, and future-ready fare collection ecosystems.
-            <br/>  
-            We operate with a clear focus on performance, compliance, and operational continuity, ensuring AFC systems remain dependable throughout their revenue lifecycle.
+            SAARTECH is a technology-driven AFC solutions provider specializing in the design, development, and execution of Automatic Fare Collection systems for metro, BRT, and urban transit networks across the globe.
+            Our core strength lies in combining deep technical expertise with proven on-ground execution capability. From AFC system architecture and software platforms to control center infrastructure and full lifecycle project delivery, we partner with transit authorities to build reliable, secure, and future-ready fare collection ecosystems that serve millions of passengers daily.
+            We operate with an unwavering focus on performance, compliance, and operational continuity, ensuring AFC systems remain dependable and efficient throughout their entire revenue lifecycle while adapting to evolving passenger needs and technological advances.
           </p>
         </section>
 
@@ -70,8 +68,6 @@ function Company() {
               <ul className="mission-list">
                 <li>To design and deliver high-availability AFC systems aligned with global best practices</li>
                 <li>To provide scalable and secure software platforms for revenue operations</li>
-                <li>To execute projects with engineering discipline, transparency, and accountability</li>
-                <li>To support transit authorities from design to revenue service and beyond</li>
               </ul>
             </div>
           </div>
@@ -104,7 +100,7 @@ function Company() {
 
         {/* Company History */}
         <section id="company-history" className="company-section history-section">
-          <h2 className="section-heading">Company History</h2>
+          <h2 className="section-heading">Our Journey</h2>
           <div className="timeline-horizontal">
             <div className="timeline-item">
               <div className="timeline-content">
