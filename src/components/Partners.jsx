@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './Partners.css';
 
 function Partners() {
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useState(() => {

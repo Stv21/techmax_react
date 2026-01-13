@@ -306,12 +306,38 @@ nav {
 }
 
 .about-description {
-  color: #666;
+  color: #444;
   font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 35px;
   text-align: justify;
   text-align-last: center;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.about-description:nth-of-type(1) {
+  animation-delay: 0.2s;
+}
+
+.about-description:nth-of-type(2) {
+  animation-delay: 0.4s;
+}
+
+.about-description:nth-of-type(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .know-more-btn {
@@ -544,8 +570,16 @@ nav {
 .solution-card:hover {
   transform: translateY(-8px);
   border-color: #ff8c00;
+  background: linear-gradient(135deg, #fff5eb 0%, #ffe8d1 100%);
   box-shadow: 0 12px 40px rgba(255, 140, 0, 0.3), 
               0 0 0 1px rgba(255, 140, 0, 0.2);
+}
+
+.solution-card:active {
+  transform: translateY(-4px);
+  border-color: #ff8c00;
+  background: rgba(255, 200, 140, 0.15);
+  box-shadow: 0 6px 25px rgba(255, 140, 0, 0.4);
 }
 
 @keyframes glowing {
@@ -780,11 +814,12 @@ nav {
 /* Partners Section */
 .partners-section {
   background: #ffffff;
-  padding: 70px 60px 100px;
+  padding: 80px 60px 120px;
   width: 100%;
   display: flex;
   align-items: center;
   scroll-snap-align: start;
+  min-height: 100vh;
 }
 
 .partners-container {
@@ -849,6 +884,10 @@ nav {
 .partner-logo[alt="AMD"],
 .partner-logo[alt="Siemens"] {
   height: 35px;
+}
+
+.partner-logo[alt="Atek"] {
+  height: 70px;
 }
 
 .partner-logo:hover {

@@ -44,11 +44,23 @@ function Company() {
         {/* About Us Section */}
         <section id="about-us" className="company-section">
           <h2 className="section-heading">About Us</h2>
-          <p className="company-description">
-            SAARTECH is a technology-driven AFC solutions provider specializing in the design, development, and execution of Automatic Fare Collection systems for metro, BRT, and urban transit networks across the globe.
-            Our core strength lies in combining deep technical expertise with proven on-ground execution capability. From AFC system architecture and software platforms to control center infrastructure and full lifecycle project delivery, we partner with transit authorities to build reliable, secure, and future-ready fare collection ecosystems that serve millions of passengers daily.
-            We operate with an unwavering focus on performance, compliance, and operational continuity, ensuring AFC systems remain dependable and efficient throughout their entire revenue lifecycle while adapting to evolving passenger needs and technological advances.
-          </p>
+          <div className="company-about-wrapper">
+            <div className="company-about-text">
+              <p className="company-description">
+                SAARTECH is a technology-driven AFC solutions provider specializing in the design, development, and execution of Automatic Fare Collection systems for metro, BRT, and urban transit networks across the globe.
+                Our core strength lies in combining deep technical expertise with proven on-ground execution capability, partnering with transit authorities to build reliable, secure, and future-ready fare collection ecosystems that serve millions of passengers daily.
+              </p>
+            </div>
+            <div className="company-founder-section">
+              <img 
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=600&fit=crop" 
+                alt="CEO" 
+                className="company-founder-image" 
+              />
+              <h3 className="company-founder-name">Sachin Kumar</h3>
+              <p className="company-founder-title">CEO</p>
+            </div>
+          </div>
         </section>
 
         {/* Mission & Vision */}
