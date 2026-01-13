@@ -56,7 +56,7 @@ function Solutions() {
   return (
     <section id="solutions" className="solutions-section">
       <div className="solutions-container">
-        <h2 className="solutions-heading">Our Solutions</h2>
+        <h2 className="solutions-heading" style={{paddingBottom: '15px'}}>Our Solutions</h2>
         <div className="carousel-wrapper">
           <button className="carousel-arrow carousel-arrow-left" onClick={prevSlide}>
             &#8249;

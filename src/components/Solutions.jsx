@@ -56,7 +56,7 @@ function Solutions() {
 
       <main className="solutions-container">
         <section className="solutions-grid-section">
-          <h2 className="section-heading" style={{marginLeft: '0px', marginBottom: '20px'}}>Our Solution Areas <br/></h2>
+          <h2 className="section-heading" style={{marginLeft: '0px', marginBottom: '40px'}}>Our Solution Areas <br/></h2>
           <div className="solutions-grid">
             {solutionBlocks.map((s, idx) => (
               <article key={idx} className="solution-block">

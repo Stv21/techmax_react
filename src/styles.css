@@ -275,7 +275,8 @@ nav {
 /* About Section */
 .about-section {
   background: #f8f9fa;
-  padding: 80px 20px;
+  padding: 40px 20px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   scroll-margin-top: 70px;
@@ -384,7 +385,7 @@ nav {
 /* Solutions Section */
 .solutions-section {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
-  padding: 0px 20px 50px;
+  padding: 40px 20px 80px;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -417,10 +418,10 @@ nav {
 }
 
 .solutions-heading {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   margin-top: 0;
   padding-top: 10px;
   letter-spacing: -1px;
@@ -513,8 +514,8 @@ nav {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   height: 100%;
-  max-height: 280px;
-  min-height: 280px;
+  max-height: 340px;
+  min-height: 340px;
   display: flex;
   flex-direction: column;
   border: 2px solid #3a3a3a;
@@ -817,7 +818,7 @@ nav {
 
 .partner-logo-wrapper {
   position: relative;
-  padding: 0 30px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -826,22 +827,28 @@ nav {
 .partner-logo-wrapper:not(:last-child)::after {
   content: '';
   position: absolute;
-  right: -40px;
+  right: -30px;
   top: 50%;
   transform: translateY(-50%);
   width: 1px;
-  height: 60px;
+  height: 50px;
   background: #ddd;
 }
 
 .partner-logo {
-  height: 60px;
+  height: 50px;
   width: auto;
   object-fit: contain;
   filter: grayscale(0%);
   opacity: 1;
   transition: all 0.4s ease;
   cursor: pointer;
+}
+
+/* Smaller logos for specific companies */
+.partner-logo[alt="AMD"],
+.partner-logo[alt="Siemens"] {
+  height: 35px;
 }
 
 .partner-logo:hover {
@@ -1247,11 +1254,11 @@ nav {
   }
   
   .partners-logos {
-    gap: 40px;
+    gap: 30px;
   }
   
   .partner-logo {
-    height: 55px;
+    height: 45px;
   }
   
   .partner-logo-wrapper:not(:last-child)::after {
@@ -1525,37 +1532,18 @@ nav {
   
   .partners-logos {
     display: flex;
-    justify-content: center;
-    overflow-x: auto;
-    overflow-y: hidden;
-    gap: 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
     margin-bottom: 40px;
     padding: 20px 10px;
-    flex-wrap: nowrap;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-    scrollbar-color: #ff8c00 #f0f0f0;
-  }
-
-  .partners-logos::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  .partners-logos::-webkit-scrollbar-track {
-    background: #f0f0f0;
-    border-radius: 10px;
-  }
-
-  .partners-logos::-webkit-scrollbar-thumb {
-    background: #ff8c00;
-    border-radius: 10px;
   }
 
   .partner-logo-wrapper {
     flex-shrink: 0;
-    padding: 0 15px;
+    padding: 15px 0;
     scroll-snap-align: center;
+    width: 100%;
   }
 
   .partner-logo-wrapper::after {
@@ -1563,9 +1551,9 @@ nav {
   }
 
   .partner-logo {
-    height: 50px;
+    height: 40px;
     width: auto;
-    min-width: 100px;
+    min-width: 80px;
   }
 
   .view-more-btn {

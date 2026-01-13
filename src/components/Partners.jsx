@@ -44,16 +44,16 @@ function Partners() {
       logo: "https://upload.wikimedia.org/wikipedia/commons/4/48/Dell_Logo.svg"
     },
     {
-      name: "VMware",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Vmware.svg"
+      name: "Intel",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg"
     },
     {
-      name: "Oracle",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg"
+      name: "AMD",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/7/7c/AMD_Logo.svg"
     },
     {
-      name: "IBM",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg"
+      name: "Siemens",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Siemens-logo.svg"
     }
   ];
 
