@@ -68,14 +68,20 @@
   
   .founder-section {
     width: 100%;
-    max-width: 350px;
-    margin-top: 30px;
+    max-width: 220px;
+    margin-top: 20px;
   }
   
   .founder-image {
     max-width: 100%;
   }
-    max-width: 320px;
+  
+  .founder-name {
+    font-size: 1.2rem;
+  }
+  
+  .founder-title {
+    font-size: 0.95rem;
   }
 }
 

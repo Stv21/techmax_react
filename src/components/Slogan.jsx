@@ -4,6 +4,13 @@ import './Slogan.css';
 function Slogan() {
   const taglineRef = useRef(null);
   const [isVisible, setIsVisible] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +38,7 @@ function Slogan() {
   return (
     <div className="video-background">
       <video autoPlay muted loop playsInline>
-        <source src="/video/entry1.mp4" type="video/mp4" />
+        <source src={isMobile ? "/video/metro_mobile.mp4" : "/video/entry1.mp4"} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="video-overlay">
