@@ -125,8 +125,8 @@ function Company() {
               <div className="timeline-dot"></div>
             </div>
             <div className="timeline-item">
-              <div className="timeline-year">2019</div>
               <div className="timeline-content">
+                <div className="timeline-year">2019</div>
                 <h3 className="timeline-title">National Expansion</h3>
                 <p className="timeline-text">
                   Expanded operations nationwide with 5 regional offices. Won multiple awards for innovation 

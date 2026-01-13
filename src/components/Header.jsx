@@ -198,8 +198,11 @@ function Header({ onSubItemClick }) {
         <div 
           className="logo"
           onClick={() => {
+            closeMobileMenu();
             navigate('/');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 100);
           }}
           style={{ cursor: 'pointer' }}
         >
@@ -211,9 +214,18 @@ function Header({ onSubItemClick }) {
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          {isMobileMenuOpen ? (
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#333" strokeWidth="2" strokeLinecap="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          ) : (
+            <>
+              <span></span>
+              <span></span>
+              <span></span>
+            </>
+          )}
         </button>
 
         <nav className={`nav ${isMobileMenuOpen ? 'mobile-open' : ''}`}>

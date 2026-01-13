@@ -1,5 +1,24 @@
 /* Footer styles are in main styles.css */
 
 .contact-info p {
-  font-size: 0.8rem; ;
+  font-size: 0.8rem;
+}
+
+/* Make footer contact items clickable */
+.footer-contact-item {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-contact-item:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+.footer-contact-item:hover .contact-icon svg {
+  stroke: #5a7fd4;
 }
