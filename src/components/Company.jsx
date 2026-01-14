@@ -66,12 +66,12 @@ function Company() {
             </div>
             <div className="company-founder-section">
               <img 
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=600&fit=crop" 
-                alt="CEO" 
+                src="img/founder.png" 
+                alt="Brijesh Sharma" 
                 className="company-founder-image" 
               />
-              <h3 className="company-founder-name">Sachin Kumar</h3>
-              <p className="company-founder-title">CEO</p>
+              <h3 className="company-founder-name">Brijesh Sharma</h3>
+              <p className="company-founder-title">Founder & CEO</p>
               <p className="company-founder-quote">"Building the future of metro transit, one station at a time."</p>
             </div>
           </div>

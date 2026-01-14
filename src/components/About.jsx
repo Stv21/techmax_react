@@ -27,11 +27,11 @@ function About() {
           
           <div className="founder-section">
             <img 
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=600&fit=crop" 
-              alt="Founder" 
+              src="img/founder.png" 
+              alt="Brijesh Sharma" 
               className="founder-image" 
             />
-            <h3 className="founder-name">Sachin Kumar</h3>
+            <h3 className="founder-name">Brijesh Sharma</h3>
             <p className="founder-title">Founder & CEO</p>
           </div>
         </div>
