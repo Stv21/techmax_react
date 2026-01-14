@@ -3,16 +3,28 @@ import './Company.css';
 
 function Company() {
   useEffect(() => {
-    // Reset scroll immediately
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    // Check if there's a hash in the URL
+    const hash = window.location.hash;
     
-    // Also reset after a short delay to override any other scroll behavior
-    const timer = setTimeout(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    }, 0);
-    
-    return () => clearTimeout(timer);
+    if (hash) {
+      // If there's a hash, scroll to that section
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      // If no hash, reset scroll to top
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      
+      const timer = setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }, 0);
+      
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const teamMembers = [
@@ -49,6 +61,7 @@ function Company() {
               <p className="company-description">
                 SAARTECH is a technology-driven AFC solutions provider specializing in the design, development, and execution of Automatic Fare Collection systems for metro, BRT, and urban transit networks across the globe.
                 Our core strength lies in combining deep technical expertise with proven on-ground execution capability, partnering with transit authorities to build reliable, secure, and future-ready fare collection ecosystems that serve millions of passengers daily.
+                We leverage cutting-edge technologies and industry best practices to deliver solutions that enhance operational efficiency, improve passenger experience, and drive sustainable urban mobility.
               </p>
             </div>
             <div className="company-founder-section">
@@ -59,6 +72,7 @@ function Company() {
               />
               <h3 className="company-founder-name">Sachin Kumar</h3>
               <p className="company-founder-title">CEO</p>
+              <p className="company-founder-quote">"Building the future of metro transit, one station at a time."</p>
             </div>
           </div>
         </section>
