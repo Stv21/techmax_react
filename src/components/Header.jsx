@@ -5,7 +5,7 @@ import './Header.css';
 // Navigation data structure with dropdown items
 const navigationData = [
   {
-    name: 'COMPANY',
+    name: 'ABOUT US',
     path: '/company',
     items: [
       { name: 'ABOUT US', anchor: 'about-us' },
