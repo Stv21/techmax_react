@@ -75,50 +75,47 @@
 .company-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 60px 40px 40px;
+  padding: 60px 20px 40px;
 }
 
 .company-section {
-  margin-bottom: 50px;
-  scroll-margin-top: 180px;
+  margin-bottom: 0px;
+  scroll-margin-top: 140px;
 }
 
 .company-section:first-of-type {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 /* Section Heading */
 .section-heading {
-  font-size: 3rem;
+  font-size: 2.4rem;
   font-weight: 800;
   text-align: center;
-  margin-bottom: 35px;
-
-  padding-bottom: 15px;
-  letter-spacing: -1.5px;
+  margin-bottom: 22px;
+  padding-bottom: 10px;
+  letter-spacing: -1px;
   position: relative;
   display: block;
   color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .section-heading::after {
   content: '';
   position: absolute;
-  bottom: -15px;
+  bottom: -12px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
-  height: 5px;
+  width: 80px;
+  height: 4px;
   background: white;
   border-radius: 3px;
-  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
 }
 
 /* About Us Section */
 .company-about-wrapper {
   display: flex;
-  gap: 50px;
+  gap: 30px;
   align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
@@ -129,46 +126,43 @@
 }
 
 .company-description {
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.98);
   font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-  font-optical-sizing: auto;
-  font-size: 1.5rem;
+  font-size: 1.05rem;
   font-weight: 400;
-  font-variation-settings: "wdth" 96, "wght" 400;
-  line-height: 2;
+  line-height: 1.6;
   letter-spacing: 0.01rem;
-  text-align: justify;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-  text-wrap: wrap;
-  padding: 20px 30px;
+  text-align: center;
+  text-shadow: none;
+  padding: 12px 18px;
 }
 
 .company-description-expanded {
-  margin-top: 20px;
-  padding: 0 30px;
+  margin-top: 12px;
+  padding: 0 18px;
 }
 
 .company-description-expanded p {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.4rem;
-  line-height: 1.8;
-  margin-bottom: 20px;
-  text-align: justify;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  text-align: center;
 }
 
 .read-more-btn {
-  background: linear-gradient(135deg, rgb(39, 35, 29), rgb(101, 44, 7));
+  background: linear-gradient(135deg, rgb(39, 35, 29), rgb(255, 102, 0));
   color: white;
   border: none;
-  padding: 12px 30px;
-  font-size: 1.1rem;
+  padding: 10px 24px;
+  font-size: 0.95rem;
   font-weight: 600;
-  border-radius: 25px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin: 20px auto 0;
+  transition: all 0.2s ease;
+  margin: 16px auto 0;
   display: block;
-  box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
 
 .read-more-btn:hover {
@@ -191,7 +185,7 @@
 .company-founder-image {
   width: 100%;
   height: auto;
-  max-width: 300px;
+  max-width: 240px;
   border-radius: 16px;
   margin-bottom: 20px;
   transition: all 0.3s ease;
@@ -243,12 +237,12 @@
   }
 }
 
-.features-container {
+features-container {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 20px;
   flex-wrap: wrap;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .feature-item {
@@ -270,89 +264,87 @@
 
 /* Mission & Vision Section */
 .mission-vision-section {
-  padding: 70px 40px;
-  margin-bottom: 60px;
+  padding: 40px 20px;
+  margin-bottom: 40px;
 }
 
 .mission-vision-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 60px;
-  max-width: 1400px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 1060px;
   margin: 0 auto;
+  align-items: stretch;
+  grid-auto-rows: 1fr;
 }
 
 .mission-card,
-.vision-card {
+.vision-card,
+.value-card {
   background: white;
-  padding: 55px;
-  border-radius: 24px;
+  padding: 14px 12px;
+  border-radius: 10px;
   border: none;
-  transition: all 0.4s ease;
+  transition: background 0.25s ease, transform 0.18s ease, box-shadow 0.2s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-}
-
-.mission-card::before,
-.vision-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: linear-gradient(90deg, #fc4a1a, #f7b733);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-}
-
-.mission-card:hover::before,
-.vision-card:hover::before {
-  transform: scaleX(1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .mission-card:hover,
-.vision-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 25px 70px rgba(255, 140, 0, 0.35);
-  background: linear-gradient(135deg, #ffe8d1 0%, #ffd4a8 100%);
-}
-
-.mission-card:active,
-.vision-card:active {
+.vision-card:hover,
+.value-card:hover {
   transform: translateY(-6px);
-  background: linear-gradient(135deg, #ffe4cc 0%, #ffd4a8 100%);
-  box-shadow: 0 15px 40px rgba(255, 140, 0, 0.4);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
 }
 
-.card-icon {
-  font-size: 4.5rem;
-  margin-bottom: 28px;
+.card-icon-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 10px auto;
+  border-radius: 6px;
 }
 
 .card-title {
-  font-size: 2.3rem;
-  font-weight: 700;
-  margin-bottom: 28px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 6px 0 6px 0;
   color: #1a1a1a;
 }
-
 .card-text {
   color: #333;
-  font-size: 1.3rem;
-  line-height: 1.9;
+  font-size: 0.92rem;
+  line-height: 1.45;
   font-weight: 400;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.mission-list {
-  color: #333;
-  font-size: 1.3rem;
-  line-height: 1.9;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Hover: change entire card to orange and swap text to white */
+.mission-card:hover,
+.vision-card:hover,
+.value-card:hover {
+  background: linear-gradient(135deg, #ff8c00, #ff6600);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
 }
+
+.mission-card:hover .card-title,
+.vision-card:hover .card-title,
+.value-card:hover .card-title,
+.mission-card:hover .card-text,
+.vision-card:hover .card-text,
+.value-card:hover .card-text {
+  color: #ffffff;
+}
+/* cleaned stray rules */
 
 .mission-list li {
   padding-left: 30px;
@@ -391,10 +383,10 @@
 .team-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 35px;
-  max-width: 1300px;
+  gap: 20px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 .team-card {
@@ -405,6 +397,15 @@
   border: none;
   transition: all 0.4s ease;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Compact adjustments: reduce vertical spacing for mission/vision and read-more */
+.mission-vision-section {
+  padding: 24px 16px !important;
+  margin-bottom: 24px !important;
+}
+.read-more-btn {
+  margin: 10px auto 10px !important;
 }
 
 .team-card:hover {
@@ -456,8 +457,8 @@
 }
 
 .social-link {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   background: white;
   color: #ff8c00;
   border-radius: 50%;
@@ -465,7 +466,7 @@
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -507,7 +508,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 60px 30px 60px;
+  padding: 40px 20px 40px;
   overflow-x: visible;
   margin-top: 0;
   gap: 20px;
@@ -654,7 +655,7 @@
   }
 
   .company-section {
-    margin-bottom: 40px;
+    margin-bottom: 0px;
   }
 
   .section-heading {

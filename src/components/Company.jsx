@@ -89,22 +89,29 @@ function Company() {
 
         {/* Mission & Vision */}
         <section id="mission-vision" className="company-section mission-vision-section">
-          <h2 className="section-heading">Vision & Mission</h2>
           <div className="mission-vision-grid">
             <div className="vision-card">
-              <div className="card-icon">🚀</div>
+              <img src="/img/vision.jpeg" alt="Vision" className="card-icon-img" />
               <h3 className="card-title">Our Vision</h3>
               <p className="card-text">
-                To be a trusted AFC technology partner enabling efficient, secure, and intelligent fare collection for modern public transport systems.
+                To shape the future of urban mobility by enabling seamless and secure fare collection experiences that make public transport simpler, smarter, and more inclusive for everyone.
               </p>
             </div>
+
             <div className="mission-card">
-              <div className="card-icon">🎯</div>
+              <img src="/img/mission.jpeg" alt="Mission" className="card-icon-img" />
               <h3 className="card-title">Our Mission</h3>
-              <ul className="mission-list">
-                <li>To design and deliver high-availability AFC systems aligned with global best practices</li>
-                <li>To provide scalable and secure software platforms for revenue operations</li>
-              </ul>
+              <p className="card-text">
+                To deliver intelligent Automatic Fare Collection systems through deep technical expertise, robust on-ground execution, and continuous innovation, helping transit agencies run secure, reliable, and scalable operations while improving everyday passenger journeys.
+              </p>
+            </div>
+
+            <div className="value-card">
+              <img src="/img/mission1.jpeg" alt="Values" className="card-icon-img" />
+              <h3 className="card-title">Our Values</h3>
+              <p className="card-text">
+                We believe excellence is achieved through teamwork and collaboration. Guided by ethics and integrity, our culture emphasizes agility, accountability, and disciplined execution to deliver meaningful outcomes for our partners and communities.
+              </p>
             </div>
           </div>
         </section>

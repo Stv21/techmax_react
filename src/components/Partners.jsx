@@ -20,10 +20,7 @@ function Partners() {
       name: "Texmaco",
       logo: "/img/logo_texmaco.png"
     },
-    {
-      name: "Atek",
-      logo: "/img/logo_atek.png"
-    },
+    
     {
       name: "SentinelOne",
       logo: "https://cdn.brandfetch.io/idqbZJLrXa/theme/dark/id98b5uTfq.svg?c=1bxid64Mup7aczewSAYMX&t=1699470647032"

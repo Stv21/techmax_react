@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Solutions.css';
 
 function Solutions() {
@@ -25,6 +26,18 @@ function Solutions() {
       document.body.style.overflow = 'auto';
     };
   }, [modalOpen]);
+
+  // Open modal if query param `open` is present
+  const location = useLocation();
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const openTitle = params.get('open');
+    if (openTitle) {
+      const target = solutionBlocks.find(s => s.title === decodeURIComponent(openTitle));
+      if (target) openModal(target);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.search]);
 
   const openModal = (solution) => {
     setSelectedSolution(solution);

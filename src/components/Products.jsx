@@ -1,5 +1,6 @@
 import './Products.css';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Solutions() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -16,28 +17,28 @@ function Solutions() {
   
   const solutions = [
     {
-      title: "Cyber Security",
-      image: "https://www.shutterstock.com/image-illustration/cyber-security-shield-symbol-blue-260nw-1449926897.jpg"
+      title: 'System Design',
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop'
     },
     {
-      title: "Infrastructure Modernization",
-      image: "https://blog.shi.com/wp-content/uploads/2023/05/datacenterwarrantysolutionbrief_hub-img_v1_ag_03nov25.png"
+      title: 'Software Development',
+      image: 'https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?w=800&h=600&fit=crop'
     },
     {
-      title: "Software Solutions",
-      image: "https://s3.amazonaws.com/a-us.storyblok.com/f/1022730/2a96f6714c/grafana-dashboards-alerts-analysis.png"
+      title: 'Product Development',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop'
     },
     {
-      title: "Intelligent Devices",
-      image: "https://techvidvan.com/tutorials/wp-content/uploads/2021/10/iot-devices.webp"
+      title: 'System Implementation and Execution',
+      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop'
     },
     {
-      title: "Mobility",
-      image: "https://geospatialworld.net/wp-content/uploads/2017/03/Smart-Mobility-2.jpg"
+      title: 'Technical Consultancy',
+      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop'
     },
     {
-      title: "Services",
-      image: "https://www.cloudavize.com/wp-content/uploads/2023/10/IT-Consulting.jpeg"
+      title: 'Professional Services',
+      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop'
     }
   ];
 
@@ -72,7 +73,7 @@ function Solutions() {
                   <img src={solution.image} alt={solution.title} className="solution-image" />
                   <div className="solution-overlay">
                     <h3 className="solution-title">{solution.title}</h3>
-                    <button className="read-more-btn">Read more</button>
+                    <ReadMoreButton title={solution.title} />
                   </div>
                 </div>
               ))}
@@ -88,3 +89,14 @@ function Solutions() {
 }
 
 export default Solutions;
+
+function ReadMoreButton({ title }) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    const q = encodeURIComponent(title);
+    navigate(`/solutions?open=${q}`);
+  };
+  return (
+    <button className="read-more-btn" onClick={handleClick}>Read more</button>
+  );
+}
