@@ -18,7 +18,6 @@ function HomePage({ onSubItemClick }) {
   return (
     <>
       <Slogan />
-      <About />
       <SolutionsSection />
       <Partners />
       <Content activeContent={null} />

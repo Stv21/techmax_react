@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './Company.css';
 
 function Company() {
+  const [readMore, setReadMore] = useState(false);
+
   useEffect(() => {
     // Check if there's a hash in the URL
     const hash = window.location.hash;
@@ -63,16 +65,33 @@ function Company() {
                 Our core strength lies in combining deep technical expertise with proven on-ground execution capability, partnering with transit authorities to build reliable, secure, and future-ready fare collection ecosystems that serve millions of passengers daily.
                 We leverage cutting-edge technologies and industry best practices to deliver solutions that enhance operational efficiency, improve passenger experience, and drive sustainable urban mobility.
               </p>
-            </div>
-            <div className="company-founder-section">
-              <img 
-                src="img/founder.png" 
-                alt="Brijesh Sharma" 
-                className="company-founder-image" 
-              />
-              <h3 className="company-founder-name">Brijesh Sharma</h3>
-              <p className="company-founder-title">Founder & CEO</p>
-              <p className="company-founder-quote">"Building the future of metro transit, one station at a time."</p>
+              {readMore && (
+                <div className="company-description-expanded" key="expanded-content">
+                  <p>
+                    Founded with a vision to revolutionize urban transit through intelligent technology, SAARTECH has emerged as a pioneer in the AFC domain. Our journey began with a simple yet powerful idea: to create fare collection systems that are not just functional, but transformative.
+                  </p>
+                  <p>
+                    Our comprehensive suite of solutions includes advanced ticketing platforms, real-time validation systems, and intelligent business logic engines that adapt to the unique needs of each transit network. We understand that every city has its own rhythm, and our systems are designed to harmonize with local requirements while maintaining global standards of excellence.
+                  </p>
+                  <p>
+                    What sets SAARTECH apart is our unwavering commitment to innovation and reliability. We don't just implement systems; we build partnerships that last. Our team of experts works closely with transit authorities to ensure seamless integration, minimal disruption, and maximum value.
+                  </p>
+                  <p>
+                    As urban populations continue to grow and the demand for efficient public transportation increases, SAARTECH remains dedicated to powering the future of mobility. We believe that great cities are built on great transit systems, and we're proud to be part of that legacy.
+                  </p>
+                </div>
+              )}
+              <button 
+                className="read-more-btn"
+                onClick={() => {
+                  console.log('Button clicked, current state:', readMore);
+                  setReadMore(!readMore);
+                }}
+                key="read-more-button"
+                style={{ background: readMore ? '#ff4444' : 'linear-gradient(135deg, #ff8c00, #ff6600)' }}
+              >
+                {readMore ? 'Read Less' : 'Read More'} ({readMore ? 'expanded' : 'collapsed'})
+              </button>
             </div>
           </div>
         </section>

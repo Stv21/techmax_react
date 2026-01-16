@@ -21,6 +21,21 @@
   align-items: flex-start;
 }
 
+/* Compact About for homepage: keep it short and fit under hero video */
+.short-about { 
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+.about-description.compact {
+  font-size: 1.05rem;
+  line-height: 1.4;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 8px 12px;
+}
+
 .about-text-content {
   flex: 1;
 }

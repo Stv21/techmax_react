@@ -137,11 +137,47 @@
   font-variation-settings: "wdth" 96, "wght" 400;
   line-height: 2;
   letter-spacing: 0.01rem;
-  margin-bottom: 40px;
   text-align: justify;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   text-wrap: wrap;
   padding: 20px 30px;
+}
+
+.company-description-expanded {
+  margin-top: 20px;
+  padding: 0 30px;
+}
+
+.company-description-expanded p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.4rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.read-more-btn {
+  background: linear-gradient(135deg, #ff8c00, #ff6600);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 20px auto 0;
+  display: block;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+}
+
+.read-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+}
+
+.read-more-btn:active {
+  transform: translateY(0);
 }
 
 .company-founder-section {
@@ -629,6 +665,23 @@
     font-size: 0.95rem;
     line-height: 1.7;
     margin-bottom: 20px;
+  }
+
+  .company-description-expanded {
+    padding: 0 20px;
+  }
+
+  .company-description-expanded p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  .read-more-btn {
+    padding: 10px 25px;
+    font-size: 1rem;
+    margin: 15px auto 0;
+    display: block;
   }
 
   .features-container {

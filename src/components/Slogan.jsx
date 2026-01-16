@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Slogan.css';
 
 function Slogan() {
@@ -48,6 +49,15 @@ function Slogan() {
           className={`tagline ${isVisible ? 'animate' : ''}`}
         >
           <p className="tagline-subtext">Infrastructure to Intelligence</p>
+        </div>
+        
+        <div className="about-in-hero">
+          <p className="about-hero-text">
+            We power next-generation fare collection systems, streamlining ticketing, validation, and business logic so operators can deliver seamless, high-performance fare collection experiences at scale.
+          </p>
+          <Link to="/company" className="hero-read-more-btn">
+            Read More
+          </Link>
         </div>
       </div>
     </div>
