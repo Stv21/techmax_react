@@ -159,7 +159,7 @@
   display: inline-block;
   margin: 0 16px 16px;
   padding: 10px 16px;
-  background: linear-gradient(90deg, #fc4a1a, #f7b733);
+  background: linear-gradient(90deg, #007bff, #0056b3);
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -171,9 +171,9 @@
 }
 
 .solution-cta:hover {
-  background: linear-gradient(90deg, #e04010, #e0a020);
+  background: linear-gradient(90deg, #0056b3, #004085);
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(252, 74, 26, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
 }
 
 /* Modal Styles */

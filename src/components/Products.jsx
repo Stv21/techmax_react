@@ -18,27 +18,33 @@ function Solutions() {
   const solutions = [
     {
       title: 'System Design',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop'
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop',
+      desc: 'Protecting infrastructure, endpoints, data, and identities with modern controls, SOC, and zero-trust design.'
     },
     {
       title: 'Software Development',
-      image: 'https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?w=800&h=600&fit=crop'
+      image: 'https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?w=800&h=600&fit=crop',
+      desc: 'Hybrid cloud, data center, and network upgrades for scalable, reliable foundations.'
     },
     {
       title: 'Product Development',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop'
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+      desc: 'Platforms and custom apps to streamline operations and decision-making with analytics.'
     },
     {
       title: 'System Implementation and Execution',
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop'
+      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop',
+      desc: 'IoT devices and edge systems for real-time telemetry and automation.'
     },
     {
       title: 'Technical Consultancy',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop'
+      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
+      desc: 'Secure, managed access across devices and locations for a productive workforce.'
     },
     {
       title: 'Professional Services',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop'
+      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop',
+      desc: 'Consulting, implementation, and managed services to deliver outcomes end-to-end.'
     }
   ];
 
@@ -73,6 +79,7 @@ function Solutions() {
                   <img src={solution.image} alt={solution.title} className="solution-image" />
                   <div className="solution-overlay">
                     <h3 className="solution-title">{solution.title}</h3>
+                    <p className="solution-desc">{solution.desc}</p>
                     <ReadMoreButton title={solution.title} />
                   </div>
                 </div>
