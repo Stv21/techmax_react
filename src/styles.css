@@ -1519,7 +1519,7 @@ nav {
   }
   
   .about-in-hero {
-    margin-top: 110px;
+    margin-top: 40px;
   }
   
   .about-hero-text {
@@ -1580,13 +1580,13 @@ nav {
   
   /* Solutions Section Mobile - Carousel with Side Arrows */
   .solutions-section {
-    padding: 40px 0;
+    padding: 20px 0;
     min-height: auto;
   }
   
   .solutions-heading {
     font-size: 1.8rem;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
     padding: 0 20px;
   }
 
@@ -1633,15 +1633,15 @@ nav {
   }
   
   .solution-card {
-    max-height: 340px;
-    min-height: 340px;
+    max-height: 280px;
+    min-height: 280px;
     flex: 0 0 100%;
     min-width: 100%;
     margin: 0 auto;
   }
 
   .solution-image {
-    height: 200px;
+    height: 160px;
   }
 
   .solution-overlay {
@@ -1674,7 +1674,9 @@ nav {
   
   .partners-logos {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     gap: 20px;
     margin-bottom: 40px;
@@ -1685,7 +1687,8 @@ nav {
     flex-shrink: 0;
     padding: 15px 0;
     scroll-snap-align: center;
-    width: 100%;
+    width: calc(50% - 10px);
+    text-align: center;
   }
 
   .partner-logo-wrapper::after {
