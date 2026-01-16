@@ -31,8 +31,27 @@ const navigationData = [
 // Navigation item component with dropdown or scroll link
 const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  
+  // Check if mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  // Close dropdown when clicking outside or on mobile menu close
+  useEffect(() => {
+    if (onMobileClose) {
+      setIsOpen(false);
+    }
+  }, [onMobileClose]);
   
   // If it's a scroll link
   if (navItem.scrollTo) {
@@ -43,6 +62,7 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
           className="nav-link"
           onClick={(e) => {
             e.preventDefault();
+            setIsOpen(false); // Close any open dropdowns
             if (location.pathname !== '/') {
               navigate('/');
               setTimeout(() => {
@@ -71,17 +91,18 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
     return (
       <li 
         className="nav-item"
-        onMouseEnter={() => setIsOpen(true)}
-        onMouseLeave={() => setIsOpen(false)}
+        onMouseEnter={() => !isMobile && setIsOpen(true)}
+        onMouseLeave={() => !isMobile && setIsOpen(false)}
       >
         <span 
-          className="nav-link" 
-          onClick={() => {
-            navigate('/company');
-            if (onMobileClose) onMobileClose();
+          className="nav-link dropdown-toggle" 
+          onClick={(e) => {
+            e.preventDefault();
+            setIsOpen(!isOpen);
           }}
         >
           {navItem.name}
+          <span className={`dropdown-arrow ${isOpen ? 'open' : ''}`}>▼</span>
         </span>
         {isOpen && (
           <ul className="dropdown">
@@ -91,6 +112,7 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
+                    setIsOpen(false); // Close dropdown after selection
                     if (location.pathname === '/company') {
                       // Already on company page, just scroll
                       const element = document.getElementById(item.anchor);

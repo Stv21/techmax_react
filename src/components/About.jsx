@@ -12,7 +12,8 @@ function About() {
               We are a technology-driven AFC solutions provider specializing in Automatic Fare Collection systems for metro and urban transit networks. With over a decade of experience, SAARTECH delivers turnkey solutions from system design to ongoing maintenance.
             </p>
             
-            <div className="expanded-content">
+            <div className="expanded-co
+            ntent">
               <p className="about-description">
                 Our strength lies in combining deep technical expertise with on-ground execution capability, supporting transit authorities in building reliable and future-ready fare collection ecosystems.
               </p>

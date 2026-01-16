@@ -272,6 +272,24 @@ nav {
   padding-left: 25px;
 }
 
+/* Dropdown toggle and arrow */
+.dropdown-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropdown-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+  color: #666;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
 /* About Section */
 .about-section {
   background: #f8f9fa;
