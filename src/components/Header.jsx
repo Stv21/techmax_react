@@ -6,13 +6,7 @@ import './Header.css';
 const navigationData = [
   {
     name: 'ABOUT US',
-    path: '/company',
-    items: [
-      { name: 'ABOUT US', anchor: 'about-us' },
-      { name: 'MISSION & VISION', anchor: 'mission-vision' },
-      { name: 'OUR TEAM', anchor: 'our-team' },
-      { name: 'COMPANY HISTORY', anchor: 'company-history' }
-    ]
+    path: '/company'
   },
   {
     name: 'SOLUTIONS',
@@ -30,28 +24,8 @@ const navigationData = [
 
 // Navigation item component with dropdown or scroll link
 const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  
-  // Check if mobile on mount and resize
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-  
-  // Close dropdown when clicking outside or on mobile menu close
-  useEffect(() => {
-    if (onMobileClose) {
-      setIsOpen(false);
-    }
-  }, [onMobileClose]);
   
   // If it's a scroll link
   if (navItem.scrollTo) {
@@ -62,7 +36,6 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
           className="nav-link"
           onClick={(e) => {
             e.preventDefault();
-            setIsOpen(false); // Close any open dropdowns
             if (location.pathname !== '/') {
               navigate('/');
               setTimeout(() => {
@@ -89,55 +62,16 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
   // If it's a Company link with dropdown
   if (navItem.path === '/company') {
     return (
-      <li 
-        className="nav-item"
-        onMouseEnter={() => !isMobile && setIsOpen(true)}
-        onMouseLeave={() => !isMobile && setIsOpen(false)}
-      >
+      <li className="nav-item">
         <span 
-          className="nav-link dropdown-toggle" 
-          onClick={(e) => {
-            e.preventDefault();
-            setIsOpen(!isOpen);
+          className="nav-link" 
+          onClick={() => {
+            navigate('/company');
+            if (onMobileClose) onMobileClose();
           }}
         >
           {navItem.name}
-          <span className={`dropdown-arrow ${isOpen ? 'open' : ''}`}>▼</span>
         </span>
-        {isOpen && (
-          <ul className="dropdown">
-            {navItem.items.map((item, index) => (
-              <li key={index}>
-                <a 
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsOpen(false); // Close dropdown after selection
-                    if (location.pathname === '/company') {
-                      // Already on company page, just scroll
-                      const element = document.getElementById(item.anchor);
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
-                    } else {
-                      // Navigate to company page then scroll
-                      navigate('/company');
-                      setTimeout(() => {
-                        const element = document.getElementById(item.anchor);
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                      }, 300);
-                    }
-                    if (onMobileClose) onMobileClose();
-                  }}
-                >
-                  {item.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
       </li>
     );
   }
@@ -159,34 +93,7 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
     );
   }
   
-  // If it's a regular dropdown (Solutions)
-  return (
-    <li 
-      className="nav-item"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
-    >
-      <span className="nav-link" onClick={() => setIsOpen(!isOpen)}>{navItem.name}</span>
-      {isOpen && (
-        <ul className="dropdown">
-          {navItem.items.map((item, index) => (
-            <li key={index}>
-              <a 
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onSubItemClick(item);
-                  if (onMobileClose) onMobileClose();
-                }}
-              >
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
-    </li>
-  );
+  return null;
 };
 
 function Header({ onSubItemClick }) {
