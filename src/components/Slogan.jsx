@@ -39,7 +39,7 @@ function Slogan() {
   return (
     <div className="video-background">
       <video autoPlay muted loop playsInline>
-        <source src={isMobile ? "/video/metro_mobile.mp4" : "/video/entry1.mp4"} type="video/mp4" />
+        <source src="/video/entry1.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="video-overlay">
