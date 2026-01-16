@@ -157,7 +157,7 @@
 }
 
 .read-more-btn {
-  background: linear-gradient(135deg, #ff8c00, #ff6600);
+  background: linear-gradient(135deg, rgb(39, 35, 29), rgb(101, 44, 7));
   color: white;
   border: none;
   padding: 12px 30px;
@@ -168,12 +168,13 @@
   transition: all 0.3s ease;
   margin: 20px auto 0;
   display: block;
-  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
 }
 
 .read-more-btn:hover {
+  background: linear-gradient(135deg, rgb(59, 55, 49), rgb(13, 44, 97));
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(255, 102, 0, 0.4);
 }
 
 .read-more-btn:active {

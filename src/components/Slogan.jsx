@@ -55,7 +55,11 @@ function Slogan() {
           <p className="about-hero-text">
             We power next-generation fare collection systems, streamlining ticketing, validation, and business logic so operators can deliver seamless, high-performance fare collection experiences at scale.
           </p>
-          <Link to="/company" className="hero-read-more-btn">
+          <Link 
+            to="/company" 
+            className="hero-read-more-btn"
+            style={{ display: 'inline-block', cursor: 'pointer' }}
+          >
             Read More
           </Link>
         </div>

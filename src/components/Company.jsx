@@ -61,24 +61,15 @@ function Company() {
           <div className="company-about-wrapper">
             <div className="company-about-text">
               <p className="company-description">
-                SAARTECH is a technology-driven AFC solutions provider specializing in the design, development, and execution of Automatic Fare Collection systems for metro, BRT, and urban transit networks across the globe.
-                Our core strength lies in combining deep technical expertise with proven on-ground execution capability, partnering with transit authorities to build reliable, secure, and future-ready fare collection ecosystems that serve millions of passengers daily.
-                We leverage cutting-edge technologies and industry best practices to deliver solutions that enhance operational efficiency, improve passenger experience, and drive sustainable urban mobility.
+              
+                We are a technology-driven provider of Automatic Fare Collection solutions for metro and urban transit networks. Our advanced AFC systems enhance passenger mobility while enabling transit agencies to improve operational efficiency and reliability. By combining strong technical expertise with proven on-ground execution, we deliver scalable, future-ready fare collection ecosystems backed by continuous innovation and strategic technology partnerships.
               </p>
               {readMore && (
                 <div className="company-description-expanded" key="expanded-content">
                   <p>
-                    Founded with a vision to revolutionize urban transit through intelligent technology, SAARTECH has emerged as a pioneer in the AFC domain. Our journey began with a simple yet powerful idea: to create fare collection systems that are not just functional, but transformative.
+                    SaarTech Solutions a group of professionals having vivid experience and wide exposure with complex and mission critical project in IT and Transportation domain. A growing company in system design, development, execution and commissioning for fare collection system and Toll management system.  We bring deep expertise in the end-to-end Supply, Installation, Testing, and Commissioning (ITC) of Automatic Fare Collection systems for complex metro and urban transit environments. Our teams execute precise field installations, seamless system integration, and rigorous multi-stage testing to ensure every component performs reliably under real-world operating conditions. From hardware deployment and network configuration to software validation and operational readiness, we ensure systems are commissioned on schedule, compliant with specifications, and ready for uninterrupted passenger service. Wide portfolio of solutions and services covering value chain engineering to execution & implementation, technical consultancy, design assistance and operation & Maintenance. Team of qualified Technical engineering graduates and business experts. Wants to establish ourselves as the best choice in Computing and Information Technology Services, Consultancy and Development by offering the full spectrum of services
                   </p>
-                  <p>
-                    Our comprehensive suite of solutions includes advanced ticketing platforms, real-time validation systems, and intelligent business logic engines that adapt to the unique needs of each transit network. We understand that every city has its own rhythm, and our systems are designed to harmonize with local requirements while maintaining global standards of excellence.
-                  </p>
-                  <p>
-                    What sets SAARTECH apart is our unwavering commitment to innovation and reliability. We don't just implement systems; we build partnerships that last. Our team of experts works closely with transit authorities to ensure seamless integration, minimal disruption, and maximum value.
-                  </p>
-                  <p>
-                    As urban populations continue to grow and the demand for efficient public transportation increases, SAARTECH remains dedicated to powering the future of mobility. We believe that great cities are built on great transit systems, and we're proud to be part of that legacy.
-                  </p>
+                 
                 </div>
               )}
               <button 
@@ -88,9 +79,9 @@ function Company() {
                   setReadMore(!readMore);
                 }}
                 key="read-more-button"
-                style={{ background: readMore ? '#ff4444' : 'linear-gradient(135deg, #ff8c00, #ff6600)' }}
+                
               >
-                {readMore ? 'Read Less' : 'Read More'} ({readMore ? 'expanded' : 'collapsed'})
+                {readMore ? 'Read Less' : 'Read More'} 
               </button>
             </div>
           </div>

@@ -45,6 +45,11 @@ body {
   justify-content: center;
   z-index: -1;
   padding: 40px 20px;
+  pointer-events: none;
+}
+
+.video-overlay > * {
+  pointer-events: auto;
 }
 
 .hero-text {
@@ -103,6 +108,7 @@ body {
   animation: fadeInUp 2s ease-in-out forwards;
   animation-delay: 0.5s;
   opacity: 0;
+  pointer-events: auto;
 }
 
 .about-hero-text {
@@ -127,6 +133,8 @@ body {
   box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
   text-transform: uppercase;
   letter-spacing: 1px;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .hero-read-more-btn:hover {
