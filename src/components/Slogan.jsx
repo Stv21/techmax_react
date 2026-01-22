@@ -5,13 +5,6 @@ import './Slogan.css';
 function Slogan() {
   const taglineRef = useRef(null);
   const [isVisible, setIsVisible] = useState(true);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,17 +41,19 @@ function Slogan() {
           ref={taglineRef}
           className={`tagline ${isVisible ? 'animate' : ''}`}
         >
-          <p className="tagline-subtext">Infrastructure to Intelligence</p>
         </div>
         
+        <div className="bottom-right-tagline">
+          <p className="tagline-main">We Deliver, What We Commit</p>
+          <hr className="tagline-divider" />
+          <p className="tagline-sub">Infrastructure to Intelligence</p>
+        </div>
+
+        
         <div className="about-in-hero">
-          <p className="about-hero-text">
-            We power next-generation fare collection systems, streamlining ticketing, validation, and business logic so operators can deliver seamless, high-performance fare collection experiences at scale.
-          </p>
           <Link 
             to="/company" 
             className="hero-read-more-btn"
-            style={{ display: 'inline-block', cursor: 'pointer' }}
           >
             Read More
           </Link>

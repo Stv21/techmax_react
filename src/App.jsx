@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react'
+import { useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Slogan from './components/Slogan'
@@ -14,7 +14,7 @@ const Company = lazy(() => import('./components/Company'))
 const Solutions = lazy(() => import('./components/Solutions'))
 const NotFound = lazy(() => import('./components/NotFound'))
 
-function HomePage({ onSubItemClick }) {
+function HomePage() {
   return (
     <>
       <Slogan />
@@ -46,16 +46,10 @@ function ScrollToTop() {
 }
 
 function App() {
-  const [activeContent, setActiveContent] = useState(null);
-  
-  const handleSubItemClick = (content) => {
-    setActiveContent(content);
-  };
-  
   return (
     <Router>
       <ScrollToTop />
-      <Header onSubItemClick={handleSubItemClick} />
+      <Header />
       <Suspense fallback={
         <div style={{ 
           minHeight: '100vh', 
@@ -71,7 +65,7 @@ function App() {
         </div>
       }>
         <Routes>
-          <Route path="/" element={<HomePage onSubItemClick={handleSubItemClick} />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/company" element={<Company />} />
           <Route path="*" element={<NotFound />} />

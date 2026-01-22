@@ -31,9 +31,9 @@ function Company() {
 
   const teamMembers = [
     {
-      name: "John Anderson",
+      name: "Brijesh Sharma",
       role: "Chief Executive Officer",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+      image: "/img/founder.png"
     },
     {
       name: "Sarah Mitchell",
@@ -62,7 +62,7 @@ function Company() {
             <div className="company-about-text">
               <p className="company-description">
               
-                We are a technology-driven provider of Automatic Fare Collection solutions for metro and urban transit networks. Our advanced AFC systems enhance passenger mobility while enabling transit agencies to improve operational efficiency and reliability. By combining strong technical expertise with proven on-ground execution, we deliver scalable, future-ready fare collection ecosystems backed by continuous innovation and strategic technology partnerships.
+                We are a technology-driven IT solutions company specializing in advanced fare collection systems and IT infrastructure management for modern transit ecosystems. With deep domain expertise and an agile delivery approach, we enable transit authorities to deploy future-ready solutions that operate seamlessly, enhance passenger mobility, and improve operational efficiency and reliability. By combining strong technical capability with proven on-ground execution, we deliver smart, secure, scalable, and resilient Automatic Fare Collection systems, driven by continuous innovation and strategic technology partnerships.
               </p>
               {readMore && (
                 <div className="company-description-expanded" key="expanded-content">

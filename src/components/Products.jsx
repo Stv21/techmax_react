@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function Solutions() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [showAll, setShowAll] = useState(false);
   
   useEffect(() => {
     const handleResize = () => {
@@ -64,23 +65,39 @@ function Solutions() {
     const q = encodeURIComponent(title);
     navigate(`/solutions?open=${q}`);
   };
+
+  const navigate = useNavigate();
+  
+  // For mobile, show only 4 solutions initially
+  const displayedSolutions = isMobile && !showAll ? solutions.slice(0, 4) : solutions;
   
   return (
     <section id="solutions" className="solutions-section">
       <div className="solutions-container">
-        <h2 className="solutions-heading" style={{paddingBottom: '15px'}}>Our Solutions</h2>
+        <h2 className="solutions-heading" style={{paddingBottom: '15px'}}>Our Services</h2>
         {isMobile ? (
-          <div className="solutions-grid">
-            {solutions.map((solution, index) => (
-              <div key={index} className="solution-card" onClick={() => handleCardClick(solution.title)}>
-                <div className="card-decorations"></div>
-                <img src={solution.image} alt={solution.title} className="solution-image" />
-                <div className="solution-overlay">
-                  <h3 className="solution-title">{solution.title}</h3>
+          <>
+            <div className="solutions-grid">
+              {displayedSolutions.map((solution, index) => (
+                <div key={index} className="solution-card" onClick={() => handleCardClick(solution.title)}>
+                  <div className="card-decorations"></div>
+                  <img src={solution.image} alt={solution.title} className="solution-image" />
+                  <div className="solution-overlay">
+                    <h3 className="solution-title">{solution.title}</h3>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+            {!showAll ? (
+              <button className="solutions-read-more-btn" onClick={() => setShowAll(true)}>
+                View More
+              </button>
+            ) : (
+              <button className="solutions-read-more-btn" onClick={() => setShowAll(false)}>
+                View Less
+              </button>
+            )}
+          </>
         ) : (
           <div className="carousel-wrapper">
             <button className="carousel-arrow carousel-arrow-left" onClick={prevSlide}>

@@ -9,8 +9,13 @@ const navigationData = [
     path: '/company'
   },
   {
-    name: 'SOLUTIONS',
-    path: '/solutions'
+    name: 'OUR SERVICES',
+    dropdown: [
+      { name: 'Mobility', path: '/solutions?service=mobility' },
+      { name: 'Entrepreneurship', path: '/solutions?service=entrepreneurship' },
+      { name: 'Advisor', path: '/solutions?service=advisor' },
+      { name: 'Proposal', path: '/solutions?service=proposal' }
+    ]
   },
   {
     name: 'PARTNERS',
@@ -26,6 +31,55 @@ const navigationData = [
 const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  // If it's a dropdown
+  if (navItem.dropdown) {
+    return (
+      <li className="nav-item">
+        <div className="dropdown-container">
+          <span 
+            className="nav-link dropdown-toggle"
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            {...(!isMobile && {
+              onMouseEnter: () => setIsDropdownOpen(true),
+              onMouseLeave: () => setIsDropdownOpen(false)
+            })}
+          >
+            {navItem.name}
+            <span className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`}>▼</span>
+          </span>
+          {isDropdownOpen && (
+            <ul className="dropdown">
+              {navItem.dropdown.map((subItem, subIndex) => (
+                <li key={subIndex}>
+                  <a 
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(subItem.path);
+                      setIsDropdownOpen(false);
+                      if (onMobileClose) onMobileClose();
+                      if (onSubItemClick) onSubItemClick(subItem.name);
+                    }}
+                  >
+                    {subItem.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </li>
+    );
+  }
   
   // If it's a scroll link
   if (navItem.scrollTo) {

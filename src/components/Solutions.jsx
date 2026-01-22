@@ -54,13 +54,13 @@ function Solutions() {
       title: 'System Design',
       desc: 'Protecting infrastructure, endpoints, data, and identities with modern controls, SOC, and zero-trust design.',
       img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop',
-      details: 'We are experts in the design and implementation of Automatic Fare Collection (AFC) systems for metro and mass transit projects. Our solutions cover the complete AFC lifecycle, from system architecture and equipment integration to testing, commissioning, and operational support.\n\nWe deliver secure, scalable, and passenger-centric AFC systems, supporting smart cards, QR tickets, NCMC, and EMV open-loop payments, while ensuring seamless integration with central and back-office systems.\n\nWith proven experience in metro environments, we enable reliable fare management, efficient operations, and smooth passenger flow.'
+      details: 'We are experts in the design and implementation of Automatic Fare Collection (AFC) systems for metro and mass transit projects. Our services cover the complete AFC lifecycle, from system architecture and equipment integration to testing, commissioning, and operational support.\n\nWe deliver secure, scalable, and passenger-centric AFC systems, supporting smart cards, QR tickets, NCMC, and EMV open-loop payments, while ensuring seamless integration with central and back-office systems.\n\nWith proven experience in metro environments, we enable reliable fare management, efficient operations, and smooth passenger flow.'
     },
     {
       title: 'Software Development',
       desc: 'Hybrid cloud, data center, and network upgrades for scalable, reliable foundations.',
       img: 'https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?w=800&h=600&fit=crop',
-      details: 'We deliver custom software solutions using modern development practices, agile methodologies, and cutting-edge technologies. Our team specializes in building robust applications that drive business efficiency, enhance user experiences, and adapt to evolving market demands.'
+      details: 'We deliver custom software services using modern development practices, agile methodologies, and cutting-edge technologies. Our team specializes in building robust applications that drive business efficiency, enhance user experiences, and adapt to evolving market demands.'
     },
     {
       title: 'Product Development',
@@ -91,16 +91,16 @@ function Solutions() {
   return (
     <div className="solutions-page">
       <div className="solutions-hero">
-        <h1 className="solutions-title" style={{borderBottomStyle: 'solid', borderBottomWidth: '0px', paddingBottom: '30px'}}>Solutions Built For Outcomes</h1>
+        <h1 className="solutions-title" style={{borderBottomStyle: 'solid', borderBottomWidth: '0px', paddingBottom: '30px'}}>Our Services Built For Outcomes</h1>
           <p className="solutions-subtitle">
             From secure infrastructure to smart applications and devices — we design, deliver, and operate
-            solutions that scale with your business.
+            services that scale with your business.
           </p>
       </div>
 
       <main className="solutions-container">
         <section className="solutions-grid-section">
-          <h2 className="section-heading" style={{marginLeft: '0px', marginBottom: '40px'}}>Our Solution Areas <br/></h2>
+          <h2 className="section-heading" style={{marginLeft: '0px', marginBottom: '40px'}}>Our Service Areas <br/></h2>
           <div className="solutions-grid">
             {solutionBlocks.map((s, idx) => (
               <article key={idx} className="solution-block">
