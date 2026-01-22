@@ -99,6 +99,53 @@ function Solutions() {
       </div>
 
       <main className="solutions-container">
+        {/* Detailed Services Section */}
+        <section className="detailed-services-section">
+          <h2 className="section-heading" style={{marginLeft: '0px', marginBottom: '30px'}}>OUR SERVICES</h2>
+          <div className="services-content">
+            <div className="service-category">
+              <h3>Mobility - Automatic Fare Collection System</h3>
+              <ul>
+                <li>▪ Product Development</li>
+                <li>▪ Payment Application</li>
+                <li>▪ Integration</li>
+                <li>▪ Deployment & Commissioning</li>
+              </ul>
+            </div>
+            
+            <div className="service-category">
+              <h3>❑ Enterprise IT Infrastructure</h3>
+              <ul>
+                <li>▪ Virtualization & High Availability</li>
+                <li>▪ Data Center Modernization</li>
+                <li>▪ Security Integration</li>
+              </ul>
+            </div>
+            
+            <div className="service-category">
+              <h3>❑ Advisory & Technical Consultancy</h3>
+              <ul>
+                <li>▪ Product Development</li>
+                <li>▪ Payment Application</li>
+                <li>▪ Deployment & Commissioning</li>
+              </ul>
+            </div>
+            
+            <div className="service-category">
+              <h3>❑ Professional Services (FMS)</h3>
+              <ul>
+                <li>▪ Solution Architecture & Design</li>
+                <li>▪ Project Management & Implementation</li>
+                <li>▪ Talent Solutions</li>
+              </ul>
+            </div>
+            
+            <div className="service-category">
+              <h3>▪ IT Governance & Compliance</h3>
+            </div>
+          </div>
+        </section>
+
         <section className="solutions-grid-section">
           <h2 className="section-heading" style={{marginLeft: '0px', marginBottom: '40px'}}>Our Service Areas <br/></h2>
           <div className="solutions-grid">

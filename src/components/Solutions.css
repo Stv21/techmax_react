@@ -97,6 +97,78 @@
   border-radius: 2px;
 }
 
+/* Detailed Services Section */
+.detailed-services-section {
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  margin-bottom: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-image: url('https://inc42.com/cdn-cgi/image/quality=75/https://asset.inc42.com/2018/09/fintech.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.detailed-services-section .section-heading {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.services-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.service-category {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.service-category:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.service-category h3 {
+  color: #000;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.service-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-category li {
+  color: #000;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  padding-left: 0;
+}
+
+.service-category li:last-child {
+  margin-bottom: 0;
+}
+
 .solutions-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

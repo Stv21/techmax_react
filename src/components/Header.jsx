@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Header.css';
 
@@ -33,28 +33,54 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
   const location = useLocation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isClickOpened, setIsClickOpened] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+        setIsClickOpened(false);
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdownOpen]);
   
   // If it's a dropdown
   if (navItem.dropdown) {
     return (
       <li className="nav-item">
-        <div className="dropdown-container">
+        <div 
+          className="dropdown-container"
+          ref={dropdownRef}
+          {...(!isMobile && !isClickOpened && {
+            onMouseLeave: () => setIsDropdownOpen(false)
+          })}
+        >
           <span 
             className="nav-link dropdown-toggle"
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            {...(!isMobile && {
-              onMouseEnter: () => setIsDropdownOpen(true),
-              onMouseLeave: () => setIsDropdownOpen(false)
+            onClick={() => {
+              setIsDropdownOpen(!isDropdownOpen);
+              setIsClickOpened(!isClickOpened);
+            }}
+            {...(!isMobile && !isClickOpened && {
+              onMouseEnter: () => setIsDropdownOpen(true)
             })}
           >
             {navItem.name}
-            <span className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`}>▼</span>
           </span>
           {isDropdownOpen && (
             <ul className="dropdown">
@@ -66,6 +92,7 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
                       e.preventDefault();
                       navigate(subItem.path);
                       setIsDropdownOpen(false);
+                      setIsClickOpened(false);
                       if (onMobileClose) onMobileClose();
                       if (onSubItemClick) onSubItemClick(subItem.name);
                     }}
