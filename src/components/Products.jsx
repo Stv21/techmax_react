@@ -59,51 +59,58 @@ function Solutions() {
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev <= 0 ? maxSlide : prev - 1));
   };
+
+  const handleCardClick = (title) => {
+    const q = encodeURIComponent(title);
+    navigate(`/solutions?open=${q}`);
+  };
   
   return (
     <section id="solutions" className="solutions-section">
       <div className="solutions-container">
         <h2 className="solutions-heading" style={{paddingBottom: '15px'}}>Our Solutions</h2>
-        <div className="carousel-wrapper">
-          <button className="carousel-arrow carousel-arrow-left" onClick={prevSlide}>
-            &#8249;
-          </button>
-          <div className="solutions-carousel">
-            <div 
-              className="solutions-track" 
-              style={{ transform: `translateX(-${currentSlide * (100 / cardsPerView)}%)` }}
-            >
-              {solutions.map((solution, index) => (
-                <div key={index} className="solution-card">
-                  <div className="card-decorations"></div>
-                  <img src={solution.image} alt={solution.title} className="solution-image" />
-                  <div className="solution-overlay">
-                    <h3 className="solution-title">{solution.title}</h3>
-                    <p className="solution-desc">{solution.desc}</p>
-                    <ReadMoreButton title={solution.title} />
-                  </div>
+        {isMobile ? (
+          <div className="solutions-grid">
+            {solutions.map((solution, index) => (
+              <div key={index} className="solution-card" onClick={() => handleCardClick(solution.title)}>
+                <div className="card-decorations"></div>
+                <img src={solution.image} alt={solution.title} className="solution-image" />
+                <div className="solution-overlay">
+                  <h3 className="solution-title">{solution.title}</h3>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
-          <button className="carousel-arrow carousel-arrow-right" onClick={nextSlide}>
-            &#8250;
-          </button>
-        </div>
+        ) : (
+          <div className="carousel-wrapper">
+            <button className="carousel-arrow carousel-arrow-left" onClick={prevSlide}>
+              &#8249;
+            </button>
+            <div className="solutions-carousel">
+              <div 
+                className="solutions-track" 
+                style={{ transform: `translateX(-${currentSlide * (100 / cardsPerView)}%)` }}
+              >
+                {solutions.map((solution, index) => (
+                  <div key={index} className="solution-card" onClick={() => handleCardClick(solution.title)}>
+                    <div className="card-decorations"></div>
+                    <img src={solution.image} alt={solution.title} className="solution-image" />
+                    <div className="solution-overlay">
+                      <h3 className="solution-title">{solution.title}</h3>
+                      <p className="solution-desc">{solution.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <button className="carousel-arrow carousel-arrow-right" onClick={nextSlide}>
+              &#8250;
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
 }
 
 export default Solutions;
-
-function ReadMoreButton({ title }) {
-  const navigate = useNavigate();
-  const handleClick = () => {
-    const q = encodeURIComponent(title);
-    navigate(`/solutions?open=${q}`);
-  };
-  return (
-    <button className="read-more-btn" onClick={handleClick}>Read more</button>
-  );
-}
