@@ -27,14 +27,32 @@ function Solutions() {
     };
   }, [modalOpen]);
 
-  // Open modal if query param `open` is present
+  // Open modal if query param `open` is present, or scroll to service if `service` param exists
   const location = useLocation();
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const openTitle = params.get('open');
+    const serviceParam = params.get('service');
+    
     if (openTitle) {
       const target = solutionBlocks.find(s => s.title === decodeURIComponent(openTitle));
       if (target) openModal(target);
+    } else if (serviceParam) {
+      // Map service param to solution block and open modal
+      const serviceMap = {
+        'mobility': 'Mobility - Automatic Fare Collection System',
+        'entrepreneurship': 'Enterprise IT Infrastructure',
+        'advisor': 'Advisory & Technical Consultancy',
+        'proposal': 'Professional Services (FMS)'
+      };
+      const targetTitle = serviceMap[serviceParam];
+      if (targetTitle) {
+        const target = solutionBlocks.find(s => s.title === targetTitle);
+        if (target) {
+          // Small delay to ensure page is rendered before opening modal
+          setTimeout(() => openModal(target), 100);
+        }
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search]);

@@ -33,20 +33,20 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
   const location = useLocation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  
+  // Check if this nav item is active
+  const isActive = location.pathname === navItem.path || 
+    (navItem.dropdown && location.pathname === '/solutions');
+  
+  // Get the service query parameter for dropdown highlighting
+  const searchParams = new URLSearchParams(location.search);
+  const currentService = searchParams.get('service');
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  
-  // Determine if this nav item is active
-  const isActive = (() => {
-    if (navItem.path === '/company' && location.pathname === '/company') return true;
-    if (navItem.dropdown && location.pathname === '/solutions') return true;
-    if (navItem.scrollTo && location.pathname === '/') return true;
-    return false;
-  })();
   
   // If it's a dropdown
   if (navItem.dropdown) {
@@ -59,7 +59,7 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
           })}
         >
           <span 
-            className={`nav-link dropdown-toggle ${isActive ? 'active' : ''}`}
+            className="nav-link dropdown-toggle"
             onClick={() => {
               navigate('/solutions');
               if (onMobileClose) onMobileClose();
@@ -73,10 +73,14 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
           </span>
           {isDropdownOpen && (
             <ul className="dropdown">
-              {navItem.dropdown.map((subItem, subIndex) => (
+              {navItem.dropdown.map((subItem, subIndex) => {
+                const serviceParam = subItem.path.split('service=')[1];
+                const isSubItemActive = currentService === serviceParam;
+                return (
                 <li key={subIndex}>
                   <a 
                     href="#"
+                    className={isSubItemActive ? 'active' : ''}
                     onClick={(e) => {
                       e.preventDefault();
                       navigate(subItem.path);
@@ -89,7 +93,7 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
                     {subItem.name}
                   </a>
                 </li>
-              ))}
+              )})}
             </ul>
           )}
         </div>
@@ -103,11 +107,17 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
       <li className="nav-item">
         <a 
           href={`#${navItem.scrollTo}`}
-          className={`nav-link ${isActive ? 'active' : ''}`}
+          className="nav-link"
           onClick={(e) => {
             e.preventDefault();
             if (location.pathname !== '/') {
-              navigate(`/#${navItem.scrollTo}`);
+              navigate('/');
+              setTimeout(() => {
+                const element = document.getElementById(navItem.scrollTo);
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }, 100);
             } else {
               const element = document.getElementById(navItem.scrollTo);
               if (element) {
@@ -128,7 +138,7 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
     return (
       <li className="nav-item">
         <span 
-          className={`nav-link ${isActive ? 'active' : ''}`} 
+          className={`nav-link ${isActive ? 'active' : ''}`}
           onClick={() => {
             navigate('/company');
             if (onMobileClose) onMobileClose();
