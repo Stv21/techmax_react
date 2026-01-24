@@ -18,34 +18,24 @@ function Solutions() {
   
   const solutions = [
     {
-      title: 'System Design',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop',
-      desc: 'Protecting infrastructure, endpoints, data, and identities with modern controls, SOC, and zero-trust design.'
+      title: 'Mobility - Automatic Fare Collection System',
+      image: '/img/solutions/mobility_afc.jpeg',
+      desc: 'Complete AFC lifecycle services from system architecture to operational support.'
     },
     {
-      title: 'Software Development',
-      image: 'https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?w=800&h=600&fit=crop',
-      desc: 'Hybrid cloud, data center, and network upgrades for scalable, reliable foundations.'
+      title: 'Enterprise IT Infrastructure',
+      image: '/img/solutions/enterprise_it.jpeg',
+      desc: 'Virtualization, data center modernization, and security integration solutions.'
     },
     {
-      title: 'Product Development',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-      desc: 'Platforms and custom apps to streamline operations and decision-making with analytics.'
+      title: 'Advisory & Technical Consultancy',
+      image: '/img/solutions/technical_consultancy.jpeg',
+      desc: 'Expert guidance on technology strategy, architecture, and implementation.'
     },
     {
-      title: 'System Implementation and Execution',
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop',
-      desc: 'IoT devices and edge systems for real-time telemetry and automation.'
-    },
-    {
-      title: 'Technical Consultancy',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
-      desc: 'Secure, managed access across devices and locations for a productive workforce.'
-    },
-    {
-      title: 'Professional Services',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop',
-      desc: 'Consulting, implementation, and managed services to deliver outcomes end-to-end.'
+      title: 'Professional Services (FMS)',
+      image: '/img/solutions/professional_services.jpeg',
+      desc: 'End-to-end project management, implementation, and talent solutions.'
     }
   ];
 
@@ -62,42 +52,40 @@ function Solutions() {
   };
 
   const handleCardClick = (title) => {
-    const q = encodeURIComponent(title);
-    navigate(`/solutions?open=${q}`);
+    // Map titles to service parameters
+    const serviceMap = {
+      'Mobility - Automatic Fare Collection System': 'mobility',
+      'Enterprise IT Infrastructure': 'entrepreneurship',
+      'Advisory & Technical Consultancy': 'advisor',
+      'Professional Services (FMS)': 'proposal'
+    };
+    const serviceParam = serviceMap[title];
+    if (serviceParam) {
+      navigate(`/solutions?service=${serviceParam}`);
+    }
   };
 
   const navigate = useNavigate();
   
-  // For mobile, show only 4 solutions initially
-  const displayedSolutions = isMobile && !showAll ? solutions.slice(0, 4) : solutions;
+  // For mobile, show all 4 solutions (no need for showAll since we only have 4)
+  const displayedSolutions = solutions;
   
   return (
     <section id="solutions" className="solutions-section">
       <div className="solutions-container">
         <h2 className="solutions-heading" style={{paddingBottom: '15px'}}>Our Services</h2>
         {isMobile ? (
-          <>
-            <div className="solutions-grid">
-              {displayedSolutions.map((solution, index) => (
-                <div key={index} className="solution-card" onClick={() => handleCardClick(solution.title)}>
-                  <div className="card-decorations"></div>
-                  <img src={solution.image} alt={solution.title} className="solution-image" />
-                  <div className="solution-overlay">
-                    <h3 className="solution-title">{solution.title}</h3>
-                  </div>
+          <div className="solutions-grid">
+            {displayedSolutions.map((solution, index) => (
+              <div key={index} className="solution-card" onClick={() => handleCardClick(solution.title)}>
+                <div className="card-decorations"></div>
+                <img src={solution.image} alt={solution.title} className="solution-image" />
+                <div className="solution-overlay">
+                  <h3 className="solution-title">{solution.title}</h3>
                 </div>
-              ))}
-            </div>
-            {!showAll ? (
-              <button className="solutions-read-more-btn" onClick={() => setShowAll(true)}>
-                View More
-              </button>
-            ) : (
-              <button className="solutions-read-more-btn" onClick={() => setShowAll(false)}>
-                View Less
-              </button>
-            )}
-          </>
+              </div>
+            ))}
+          </div>
         ) : (
           <div className="carousel-wrapper">
             <button className="carousel-arrow carousel-arrow-left" onClick={prevSlide}>

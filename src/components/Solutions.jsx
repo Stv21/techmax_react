@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Solutions.css';
 
 function Solutions() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedSolution, setSelectedSolution] = useState(null);
+  const [highlightedCard, setHighlightedCard] = useState(null);
+  const cardRefs = useRef([]);
 
   useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -15,43 +17,36 @@ function Solutions() {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    // Prevent body scroll when modal is open
-    if (modalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [modalOpen]);
 
-  // Open modal if query param `open` is present, or scroll to service if `service` param exists
+
+  // Highlight card and scroll to it if query param is present (don't open modal)
   const location = useLocation();
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const openTitle = params.get('open');
     const serviceParam = params.get('service');
     
-    if (openTitle) {
-      const target = solutionBlocks.find(s => s.title === decodeURIComponent(openTitle));
-      if (target) openModal(target);
-    } else if (serviceParam) {
-      // Map service param to solution block and open modal
+    if (serviceParam) {
+      // Map service param to solution block index
       const serviceMap = {
-        'mobility': 'Mobility - Automatic Fare Collection System',
-        'entrepreneurship': 'Enterprise IT Infrastructure',
-        'advisor': 'Advisory & Technical Consultancy',
-        'proposal': 'Professional Services (FMS)'
+        'mobility': 0,
+        'entrepreneurship': 1,
+        'advisor': 2,
+        'proposal': 3
       };
-      const targetTitle = serviceMap[serviceParam];
-      if (targetTitle) {
-        const target = solutionBlocks.find(s => s.title === targetTitle);
-        if (target) {
-          // Small delay to ensure page is rendered before opening modal
-          setTimeout(() => openModal(target), 100);
-        }
+      const targetIndex = serviceMap[serviceParam];
+      if (targetIndex !== undefined) {
+        // Small delay to ensure page is rendered
+        setTimeout(() => {
+          setHighlightedCard(targetIndex);
+          setTimeout(() => {
+            if (cardRefs.current[targetIndex]) {
+              cardRefs.current[targetIndex].scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+              });
+            }
+          }, 100);
+        }, 200);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -109,7 +104,11 @@ function Solutions() {
           <h2 className="section-heading" style={{marginLeft: '0px', marginBottom: '40px'}}>Our Service Areas <br/></h2>
           <div className="solutions-grid">
             {solutionBlocks.map((s, idx) => (
-              <article key={idx} className="solution-block">
+              <article 
+                key={idx}
+                ref={el => cardRefs.current[idx] = el}
+                className={`solution-block ${highlightedCard === idx ? 'highlighted' : ''}`}
+              >
                 <div className="solution-image-wrap">
                   <img src={s.img} alt={s.title} />
                 </div>
@@ -152,8 +151,8 @@ function Solutions() {
             <button className="modal-close" onClick={closeModal}>&times;</button>
             <h2 className="modal-title">{selectedSolution.title}</h2>
             <div className="modal-body">
-              {selectedSolution.details.split('\n\n').map((paragraph, idx) => (
-                <p key={idx}>{paragraph}</p>
+              {selectedSolution.details.split('\n').map((line, i) => (
+                <p key={i}>{line}</p>
               ))}
             </div>
           </div>
