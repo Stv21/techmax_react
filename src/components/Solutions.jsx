@@ -51,40 +51,28 @@ function Solutions() {
 
   const solutionBlocks = [
     {
-      title: 'System Design',
-      desc: 'Protecting infrastructure, endpoints, data, and identities with modern controls, SOC, and zero-trust design.',
-      img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop',
-      details: 'We are experts in the design and implementation of Automatic Fare Collection (AFC) systems for metro and mass transit projects. Our services cover the complete AFC lifecycle, from system architecture and equipment integration to testing, commissioning, and operational support.\n\nWe deliver secure, scalable, and passenger-centric AFC systems, supporting smart cards, QR tickets, NCMC, and EMV open-loop payments, while ensuring seamless integration with central and back-office systems.\n\nWith proven experience in metro environments, we enable reliable fare management, efficient operations, and smooth passenger flow.'
+      title: 'Mobility - Automatic Fare Collection System',
+      desc: 'Complete AFC lifecycle services from system architecture to operational support.',
+      img: '/img/solutions/mobility_afc.jpeg',
+      details: 'We are experts in the design and implementation of Automatic Fare Collection (AFC) systems for metro and mass transit projects. Our services cover:\n\n▪ Product Development\n▪ Payment Application\n▪ Integration\n▪ Deployment & Commissioning\n\nWe deliver secure, scalable, and passenger-centric AFC systems, supporting smart cards, QR tickets, NCMC, and EMV open-loop payments, while ensuring seamless integration with central and back-office systems.'
     },
     {
-      title: 'Software Development',
-      desc: 'Hybrid cloud, data center, and network upgrades for scalable, reliable foundations.',
-      img: 'https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?w=800&h=600&fit=crop',
-      details: 'We deliver custom software services using modern development practices, agile methodologies, and cutting-edge technologies. Our team specializes in building robust applications that drive business efficiency, enhance user experiences, and adapt to evolving market demands.'
+      title: 'Enterprise IT Infrastructure',
+      desc: 'Virtualization, data center modernization, and security integration solutions.',
+      img: '/img/solutions/enterprise_it.jpeg',
+      details: 'We deliver comprehensive IT infrastructure services using modern technologies and best practices:\n\n▪ Virtualization & High Availability\n▪ Data Center Modernization\n▪ Security Integration\n\nOur team specializes in building robust infrastructure that drives business efficiency, enhances performance, and adapts to evolving technological demands.'
     },
     {
-      title: 'Product Development',
-      desc: 'Platforms and custom apps to streamline operations and decision-making with analytics.',
-      img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-      details: 'From concept to launch, we guide your product development journey with strategic planning, user-centered design, and iterative development. Our expertise spans mobile apps, web platforms, and enterprise software, ensuring your product meets market needs and exceeds user expectations.'
+      title: 'Advisory & Technical Consultancy',
+      desc: 'Expert guidance on technology strategy, architecture, and implementation.',
+      img: '/img/solutions/technical_consultancy.jpeg',
+      details: 'Our technical consultants bring deep expertise in technology strategy, architecture, and best practices:\n\n▪ Product Development\n▪ Payment Application\n▪ Deployment & Commissioning\n\nWe assess your current infrastructure, identify opportunities for improvement, and provide actionable recommendations to optimize performance, security, and cost-effectiveness.'
     },
     {
-      title: 'System Implementation and Execution',
-      desc: 'IoT devices and edge systems for real-time telemetry and automation.',
-      img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop',
-      details: 'Expert implementation services ensure smooth deployment of complex systems with minimal disruption. We handle installation, configuration, testing, and migration while providing comprehensive training and documentation for seamless adoption across your organization.'
-    },
-    {
-      title: 'Technical Consultancy',
-      desc: 'Secure, managed access across devices and locations for a productive workforce.',
-      img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
-      details: 'Our technical consultants bring deep expertise in technology strategy, architecture, and best practices. We assess your current infrastructure, identify opportunities for improvement, and provide actionable recommendations to optimize performance, security, and cost-effectiveness.'
-    },
-    {
-      title: 'Professional Services',
-      desc: 'Consulting, implementation, and managed services to deliver outcomes end-to-end.',
-      img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop',
-      details: 'Comprehensive professional services covering project management, business analysis, quality assurance, and ongoing support. We partner with you throughout the entire lifecycle, ensuring successful delivery, continuous improvement, and long-term value realization.'
+      title: 'Professional Services (FMS)',
+      desc: 'End-to-end project management, implementation, and talent solutions.',
+      img: '/img/solutions/professional_services.jpeg',
+      details: 'Comprehensive professional services covering the entire project lifecycle:\n\n▪ Solution Architecture & Design\n▪ Project Management & Implementation\n▪ Talent Solutions\n\nWe partner with you throughout, ensuring successful delivery, continuous improvement, and long-term value realization.'
     }
   ];
 
@@ -99,53 +87,6 @@ function Solutions() {
       </div>
 
       <main className="solutions-container">
-        {/* Detailed Services Section */}
-        <section className="detailed-services-section">
-          <h2 className="section-heading" style={{marginLeft: '0px', marginBottom: '30px'}}>OUR SERVICES</h2>
-          <div className="services-content">
-            <div className="service-category">
-              <h3>Mobility - Automatic Fare Collection System</h3>
-              <ul>
-                <li>▪ Product Development</li>
-                <li>▪ Payment Application</li>
-                <li>▪ Integration</li>
-                <li>▪ Deployment & Commissioning</li>
-              </ul>
-            </div>
-            
-            <div className="service-category">
-              <h3>❑ Enterprise IT Infrastructure</h3>
-              <ul>
-                <li>▪ Virtualization & High Availability</li>
-                <li>▪ Data Center Modernization</li>
-                <li>▪ Security Integration</li>
-              </ul>
-            </div>
-            
-            <div className="service-category">
-              <h3>❑ Advisory & Technical Consultancy</h3>
-              <ul>
-                <li>▪ Product Development</li>
-                <li>▪ Payment Application</li>
-                <li>▪ Deployment & Commissioning</li>
-              </ul>
-            </div>
-            
-            <div className="service-category">
-              <h3>❑ Professional Services (FMS)</h3>
-              <ul>
-                <li>▪ Solution Architecture & Design</li>
-                <li>▪ Project Management & Implementation</li>
-                <li>▪ Talent Solutions</li>
-              </ul>
-            </div>
-            
-            <div className="service-category">
-              <h3>▪ IT Governance & Compliance</h3>
-            </div>
-          </div>
-        </section>
-
         <section className="solutions-grid-section">
           <h2 className="section-heading" style={{marginLeft: '0px', marginBottom: '40px'}}>Our Service Areas <br/></h2>
           <div className="solutions-grid">

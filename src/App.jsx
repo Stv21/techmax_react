@@ -26,7 +26,7 @@ function HomePage() {
 }
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
     // Add/remove class to html element based on route
@@ -36,11 +36,23 @@ function ScrollToTop() {
       document.documentElement.classList.remove('home-page');
     }
     
-    // Force scroll to top
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  }, [pathname]);
+    // Handle hash scrolling for navigation
+    if (hash) {
+      // Remove the # and scroll to element
+      const elementId = hash.substring(1);
+      setTimeout(() => {
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 200);
+    } else {
+      // Force scroll to top only if no hash
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+  }, [pathname, hash]);
 
   return null;
 }

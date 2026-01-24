@@ -337,6 +337,11 @@ nav {
   color: #f56835;
 }
 
+.nav-link.active {
+  color: #ff6b35;
+  font-weight: 700;
+}
+
 /* Dropdown */
 .dropdown {
   position: absolute;
@@ -344,7 +349,7 @@ nav {
   left: 0;
   background: rgba(20, 20, 20, 0.95);
   backdrop-filter: blur(10px);
-  min-width: 220px;
+  min-width: 320px;
   list-style: none;
   padding: 10px 0;
   border-radius: 4px;

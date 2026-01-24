@@ -100,15 +100,10 @@
 /* Detailed Services Section */
 .detailed-services-section {
   padding: 60px 20px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.15) 0%, rgba(255, 69, 0, 0.08) 50%, rgba(255, 215, 0, 0.05) 100%);
   border-radius: 15px;
   margin-bottom: 60px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background-image: url('https://inc42.com/cdn-cgi/image/quality=75/https://asset.inc42.com/2018/09/fintech.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -171,9 +166,9 @@
 
 .solutions-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 1100px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -466,7 +461,7 @@
 }
 
 @media (max-width: 640px) {
-  .solutions-grid { grid-template-columns: 1fr; }
+  .solutions-grid { grid-template-columns: repeat(2, 1fr); }
   .solutions-container { padding: 24px 16px 60px; }
   .solutions-title { font-size: 2.5rem; }
   .solutions-subtitle { font-size: 1.1rem; }

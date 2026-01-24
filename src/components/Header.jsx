@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Header.css';
 
@@ -11,10 +11,10 @@ const navigationData = [
   {
     name: 'OUR SERVICES',
     dropdown: [
-      { name: 'Mobility', path: '/solutions?service=mobility' },
-      { name: 'Entrepreneurship', path: '/solutions?service=entrepreneurship' },
-      { name: 'Advisor', path: '/solutions?service=advisor' },
-      { name: 'Proposal', path: '/solutions?service=proposal' }
+      { name: ' Mobility - Automatic Fare Collection System', path: '/solutions?service=mobility' },
+      { name: 'Enterprise IT Infrastructure', path: '/solutions?service=entrepreneurship' },
+      { name: 'Advisory & Technical Consultancy', path: '/solutions?service=advisor' },
+      { name: 'Professional Services (FMS)', path: '/solutions?service=proposal' }
     ]
   },
   {
@@ -33,31 +33,20 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
   const location = useLocation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [isClickOpened, setIsClickOpened] = useState(false);
-  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
-        setIsClickOpened(false);
-      }
-    };
-
-    if (isDropdownOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isDropdownOpen]);
+  
+  // Determine if this nav item is active
+  const isActive = (() => {
+    if (navItem.path === '/company' && location.pathname === '/company') return true;
+    if (navItem.dropdown && location.pathname === '/solutions') return true;
+    if (navItem.scrollTo && location.pathname === '/') return true;
+    return false;
+  })();
   
   // If it's a dropdown
   if (navItem.dropdown) {
@@ -65,22 +54,22 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
       <li className="nav-item">
         <div 
           className="dropdown-container"
-          ref={dropdownRef}
-          {...(!isMobile && !isClickOpened && {
+          {...(!isMobile && {
             onMouseLeave: () => setIsDropdownOpen(false)
           })}
         >
           <span 
-            className="nav-link dropdown-toggle"
+            className={`nav-link dropdown-toggle ${isActive ? 'active' : ''}`}
             onClick={() => {
-              setIsDropdownOpen(!isDropdownOpen);
-              setIsClickOpened(!isClickOpened);
+              navigate('/solutions');
+              if (onMobileClose) onMobileClose();
             }}
-            {...(!isMobile && !isClickOpened && {
+            {...(!isMobile && {
               onMouseEnter: () => setIsDropdownOpen(true)
             })}
           >
             {navItem.name}
+            <span className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`}>▼</span>
           </span>
           {isDropdownOpen && (
             <ul className="dropdown">
@@ -114,17 +103,11 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
       <li className="nav-item">
         <a 
           href={`#${navItem.scrollTo}`}
-          className="nav-link"
+          className={`nav-link ${isActive ? 'active' : ''}`}
           onClick={(e) => {
             e.preventDefault();
             if (location.pathname !== '/') {
-              navigate('/');
-              setTimeout(() => {
-                const element = document.getElementById(navItem.scrollTo);
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }, 100);
+              navigate(`/#${navItem.scrollTo}`);
             } else {
               const element = document.getElementById(navItem.scrollTo);
               if (element) {
@@ -145,7 +128,7 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
     return (
       <li className="nav-item">
         <span 
-          className="nav-link" 
+          className={`nav-link ${isActive ? 'active' : ''}`} 
           onClick={() => {
             navigate('/company');
             if (onMobileClose) onMobileClose();
