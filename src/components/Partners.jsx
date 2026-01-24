@@ -76,6 +76,13 @@ function Partners() {
         >
           {showAll ? 'View Less' : 'View More'}
         </button>
+        
+        <div className="partners-quote">
+          <blockquote>
+            "Partnerships drive innovation. Together with our trusted technology partners, 
+            we deliver cutting-edge solutions that transform businesses and empower communities."
+          </blockquote>
+        </div>
       </div>
     </section>
   );

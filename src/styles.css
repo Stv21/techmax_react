@@ -17,7 +17,7 @@ body {
   overflow: hidden;
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  margin-top: 60px;
+  margin-top: 0px;
 }
 
 .video-background video {
@@ -669,6 +669,62 @@ nav {
   z-index: 10;
 }
 
+.products-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+  margin-top: 0;
+  padding-top: 10px;
+  letter-spacing: -1px;
+  position: relative;
+  display: block;
+  width: 100%;
+  z-index: 10;
+  color: white;
+}
+
+.products-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ff8c00, transparent);
+  border-radius: 2px;
+  z-index: 10;
+}
+
+.partners-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+  margin-top: 0;
+  padding-top: 10px;
+  letter-spacing: -1px;
+  position: relative;
+  display: block;
+  width: 100%;
+  z-index: 10;
+  color: #666;
+}
+
+.partners-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ff8c00, transparent);
+  border-radius: 2px;
+  z-index: 10;
+}
+
 .carousel-wrapper {
   position: relative;
   display: flex;
@@ -742,8 +798,8 @@ nav {
   flex-direction: column;
   border: none;
   box-shadow: 0 14px 36px rgba(0,0,0,0.18);
-  flex: 0 0 calc(33.333% - 12px);
-  min-width: calc(33.333% - 12px);
+  flex: 0 0 calc(25% - 15px);
+  min-width: calc(25% - 15px);
 }
 
 .solution-card::before {
@@ -1122,6 +1178,38 @@ nav {
 
 .view-more-btn:active {
   transform: translateY(0);
+}
+
+.partners-quote {
+  margin-top: 30px;
+  padding: 20px 15px;
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.05), rgba(255, 69, 0, 0.02));
+  border-radius: 12px;
+  border-left: 3px solid #ff8c00;
+  max-width: 1000px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.partners-quote blockquote {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+  position: relative;
+  padding-left: 20px;
+}
+
+.partners-quote blockquote::before {
+  content: '"';
+  font-size: 2.5rem;
+  color: #ff8c00;
+  position: absolute;
+  left: -5px;
+  top: -10px;
+  font-family: Georgia, serif;
 }
 
 /* Footer Section */

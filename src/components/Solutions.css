@@ -232,18 +232,17 @@
 
 .solution-cta {
   display: inline-block;
-  margin: 0 16px 16px;
-  padding: 10px 16px;
+  margin: 20px 16px 16px;
+  padding: 15px 40px;
   background: linear-gradient(90deg, #fc4a1a, #f7b733);
   color: white;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 50px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.1rem;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: auto;
 }
 
 .solution-cta:hover {

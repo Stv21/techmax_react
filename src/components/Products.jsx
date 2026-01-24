@@ -39,8 +39,8 @@ function Solutions() {
     }
   ];
 
-  // Mobile shows 1 card, desktop shows 3 cards
-  const cardsPerView = isMobile ? 1 : 3;
+  // Mobile shows 1 card, desktop shows 4 cards (all services fit in one view)
+  const cardsPerView = isMobile ? 1 : 4;
   const maxSlide = solutions.length - cardsPerView;
 
   const nextSlide = () => {
@@ -88,9 +88,11 @@ function Solutions() {
           </div>
         ) : (
           <div className="carousel-wrapper">
-            <button className="carousel-arrow carousel-arrow-left" onClick={prevSlide}>
-              &#8249;
-            </button>
+            {maxSlide > 0 && (
+              <button className="carousel-arrow carousel-arrow-left" onClick={prevSlide}>
+                &#8249;
+              </button>
+            )}
             <div className="solutions-carousel">
               <div 
                 className="solutions-track" 
@@ -108,9 +110,11 @@ function Solutions() {
                 ))}
               </div>
             </div>
-            <button className="carousel-arrow carousel-arrow-right" onClick={nextSlide}>
-              &#8250;
-            </button>
+            {maxSlide > 0 && (
+              <button className="carousel-arrow carousel-arrow-right" onClick={nextSlide}>
+                &#8250;
+              </button>
+            )}
           </div>
         )}
       </div>
