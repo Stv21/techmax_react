@@ -20,20 +20,20 @@ function Solutions() {
     {
       title: 'Mobility - Automatic Fare Collection System',
       image: '/img/solutions/mobility_afc.jpeg',
-      desc: 'Complete AFC lifecycle services from system architecture to operational support.'
+      desc: 'We power next-generation fare collection systems, streamlining ticketing, validation, and business logic to help operators deliver seamless, high-performance experiences at scale.'
     },
     {
-      title: 'Enterprise IT Infrastructure',
+      title: 'Enterprise IT Infrastructure Systems',
       image: '/img/solutions/enterprise_it.jpeg',
-      desc: 'Virtualization, data center modernization, and security integration solutions.'
+      desc: 'We deliver modern IT infrastructure that forms the foundation for digital transformation. From core data centers to edge environments, our solutions ensure the agility, performance, and resilience required to support innovation and business growth.'
     },
     {
       title: 'Advisory & Technical Consultancy',
       image: '/img/solutions/technical_consultancy.jpeg',
-      desc: 'Expert guidance on technology strategy, architecture, and implementation.'
+      desc: 'Our Advisory & Consultancy Services enable organizations to make informed technology decisions, optimize IT infrastructure, and achieve business goals.'
     },
     {
-      title: 'Professional Services (FMS)',
+      title: 'Professional Services (FMS) Systems',
       image: '/img/solutions/professional_services.jpeg',
       desc: 'End-to-end project management, implementation, and talent solutions.'
     }
@@ -99,12 +99,14 @@ function Solutions() {
                 style={{ transform: `translateX(-${currentSlide * (100 / cardsPerView)}%)` }}
               >
                 {solutions.map((solution, index) => (
-                  <div key={index} className="solution-card" onClick={() => handleCardClick(solution.title)}>
+                  <div key={index} className="solution-card">
                     <div className="card-decorations"></div>
                     <img src={solution.image} alt={solution.title} className="solution-image" />
                     <div className="solution-overlay">
                       <h3 className="solution-title">{solution.title}</h3>
-                      <p className="solution-desc">{solution.desc}</p>
+                      <button className="solution-learn-more-btn" onClick={() => handleCardClick(solution.title)}>
+                        Learn More
+                      </button>
                     </div>
                   </div>
                 ))}

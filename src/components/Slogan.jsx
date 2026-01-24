@@ -45,7 +45,6 @@ function Slogan() {
         
         <div className="bottom-right-tagline">
           <p className="tagline-main">We Deliver, What We Commit</p>
-          <hr className="tagline-divider" />
           <p className="tagline-sub">Infrastructure to Intelligence</p>
         </div>
 
@@ -55,7 +54,7 @@ function Slogan() {
             to="/company" 
             className="hero-read-more-btn"
           >
-            Read More
+            Know More
           </Link>
         </div>
       </div>
