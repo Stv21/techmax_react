@@ -14,7 +14,7 @@ function About() {
           </div>
         </div>
         
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '15px' }}>
+        <div style={{ textAlign: 'center', marginTop: '15px' }}>
           <a className="hero-read-more-btn" href="/company" data-discover="true">Know More</a>
         </div>
       </div>

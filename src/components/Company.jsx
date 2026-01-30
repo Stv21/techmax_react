@@ -147,91 +147,103 @@ function Company() {
           <div className="timeline-horizontal">
             <div className="timeline-item">
               <div className="timeline-marker">
-                <div className="timeline-icon">
+                <div className="timeline-icon icon-2021">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
                 </div>
-                <div className="timeline-year">2015</div>
+                <div className="timeline-year">2021</div>
               </div>
               <div className="timeline-content">
                 <h3 className="timeline-title">Foundation</h3>
                 <p className="timeline-text">
-                  SAARTECH was founded with a vision to revolutionize the technology solutions industry.
-                  Started with a small team of 5 dedicated professionals in a single office.
+                  System Design and Software application development for Hubli-Dharwad BRTS ETM AFC system for NEC.
                 </p>
               </div>
             </div>
 
             <div className="timeline-item">
               <div className="timeline-marker">
-                <div className="timeline-icon">
+                <div className="timeline-icon icon-2022">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                </div>
-                <div className="timeline-year">2017</div>
-              </div>
-              <div className="timeline-content">
-                <h3 className="timeline-title">First Major Contract</h3>
-                <p className="timeline-text">
-                  Secured our first major metro transit project, establishing ourselves as a reliable AFC solutions provider.
-                  Expanded team to 25 members and opened a second regional office.
-                </p>
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="timeline-marker">
-                <div className="timeline-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
-                    <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                </div>
-                <div className="timeline-year">2019</div>
-              </div>
-              <div className="timeline-content">
-                <h3 className="timeline-title">National Expansion</h3>
-                <p className="timeline-text">
-                  Expanded operations nationwide with 5 regional offices. Won multiple awards for innovation
-                  and excellence in technology implementation. Team grew to 100+ professionals.
-                </p>
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="timeline-marker">
-                <div className="timeline-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"/>
                   </svg>
                 </div>
                 <div className="timeline-year">2022</div>
               </div>
               <div className="timeline-content">
-                <h3 className="timeline-title">International Presence</h3>
+                <h3 className="timeline-title">First Major Contract</h3>
                 <p className="timeline-text">
-                  Launched international operations with projects in Southeast Asia and Middle East.
-                  Established strategic partnerships with global technology leaders and R&D center.
+                  Collaboration with overseas players for software development of critical medical health applications.
                 </p>
               </div>
             </div>
 
             <div className="timeline-item">
               <div className="timeline-marker">
-                <div className="timeline-icon">
+                <div className="timeline-icon icon-2023">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                    <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <div className="timeline-year">2023</div>
+              </div>
+              <div className="timeline-content">
+                <h3 className="timeline-title">National Expansion</h3>
+                <p className="timeline-text">
+                  Installation, Testing, and Commissioning of AFC, Telecommunication, Security & Surveillance Systems.
+                </p>
+              </div>
+            </div>
+
+            <div className="timeline-item">
+              <div className="timeline-marker">
+                <div className="timeline-icon icon-2024">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"/>
+                  </svg>
+                </div>
+                <div className="timeline-year">2024</div>
+              </div>
+              <div className="timeline-content">
+                <h3 className="timeline-title">International Presence</h3>
+                <p className="timeline-text">
+                  Selection and supply of reliable IT hardware for AFC, ITMS, toll management, and surveillance systems.
+                </p>
+              </div>
+            </div>
+
+            <div className="timeline-item">
+              <div className="timeline-marker">
+                <div className="timeline-icon icon-2025">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                  </svg>
+                </div>
+                <div className="timeline-year">2025</div>
+              </div>
+              <div className="timeline-content">
+                <h3 className="timeline-title">Growth & Innovation</h3>
+                <p className="timeline-text">
+                  Expanded AI-driven AFC solutions and smart transit integrations across multiple cities.
+                </p>
+              </div>
+            </div>
+
+            <div className="timeline-item">
+              <div className="timeline-marker">
+                <div className="timeline-icon icon-2026">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
                   </svg>
                 </div>
                 <div className="timeline-year">2026</div>
               </div>
               <div className="timeline-content">
-                <h3 className="timeline-title">Innovation Leader</h3>
+                <h3 className="timeline-title">Industry Leadership</h3>
                 <p className="timeline-text">
-                  Now recognized as an industry leader with 300+ employees, serving 50+ major transit authorities
-                  and enterprises. Continuing to push boundaries with AI-driven solutions and smart city initiatives.
+                  Recognized leader with 300+ employees, serving 50+ transit authorities and pushing sustainable urban mobility.
                 </p>
               </div>
             </div>
