@@ -44,6 +44,8 @@ function Solutions() {
                 behavior: 'smooth', 
                 block: 'center' 
               });
+              // Add offset to account for fixed header
+              window.scrollBy(0, 225);
             }
           }, 100);
         }, 200);

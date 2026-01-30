@@ -11,10 +11,10 @@ const navigationData = [
   {
     name: 'OUR SERVICES',
     dropdown: [
-      { name: ' Mobility - Automatic Fare Collection System', path: '/solutions?service=mobility' },
-      { name: 'Enterprise IT Infrastructure', path: '/solutions?service=entrepreneurship' },
-      { name: 'Advisory & Technical Consultancy', path: '/solutions?service=advisor' },
-      { name: 'Professional Services (FMS)', path: '/solutions?service=proposal' }
+      { name: ' Mobility - Automatic Fare Collection System', path: '/solutions/mobility' },
+      { name: 'Enterprise IT Infrastructure', path: '/solutions/enterprise' },
+      { name: 'Advisory & Technical Consultancy', path: '/solutions/advisory' },
+      { name: 'Professional Services (FMS)', path: '/solutions/professional' }
     ]
   },
   {
@@ -61,7 +61,21 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
           <span 
             className="nav-link dropdown-toggle"
             onClick={() => {
-              navigate('/solutions');
+              // Scroll to solutions section on main page
+              if (location.pathname !== '/') {
+                navigate('/');
+                setTimeout(() => {
+                  const element = document.getElementById('solutions');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }, 100);
+              } else {
+                const element = document.getElementById('solutions');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }
               if (onMobileClose) onMobileClose();
             }}
             {...(!isMobile && {

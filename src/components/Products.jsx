@@ -52,16 +52,16 @@ function Solutions() {
   };
 
   const handleCardClick = (title) => {
-    // Map titles to service parameters
+    // Map titles to new service routes
     const serviceMap = {
-      'Mobility - Automatic Fare Collection System': 'mobility',
-      'Enterprise IT Infrastructure': 'entrepreneurship',
-      'Advisory & Technical Consultancy': 'advisor',
-      'Professional Services (FMS)': 'proposal'
+      'Mobility - Automatic Fare Collection System': '/solutions/mobility',
+      'Enterprise IT Infrastructure Systems': '/solutions/enterprise',
+      'Advisory & Technical Consultancy': '/solutions/advisory',
+      'Professional Services (FMS) Systems': '/solutions/professional'
     };
-    const serviceParam = serviceMap[title];
-    if (serviceParam) {
-      navigate(`/solutions?service=${serviceParam}`);
+    const route = serviceMap[title];
+    if (route) {
+      navigate(route);
     }
   };
 

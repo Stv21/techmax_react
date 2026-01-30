@@ -337,7 +337,7 @@ nav {
 
 /* Active state for navigation links */
 .nav-link.active {
-  color: #ff8c00;
+  color: white;
   font-weight: 700;
 }
 
@@ -1205,35 +1205,48 @@ nav {
 }
 
 .partners-quote {
-  margin-top: 30px;
-  padding: 20px 15px;
-  background: linear-gradient(135deg, rgba(255, 140, 0, 0.05), rgba(255, 69, 0, 0.02));
-  border-radius: 12px;
-  border-left: 3px solid #ff8c00;
-  max-width: 1000px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 30px 25px;
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.08), rgba(255, 69, 0, 0.03));
+  border-radius: 15px;
+  border-left: 4px solid #ff8c00;
+  max-width: 900px;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.1);
 }
 
 .partners-quote blockquote {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-style: italic;
-  color: #555;
-  line-height: 1.5;
+  color: #444;
+  line-height: 1.6;
   margin: 0;
   position: relative;
-  padding-left: 20px;
+  padding: 0 20px;
+  font-weight: 400;
 }
 
 .partners-quote blockquote::before {
   content: '"';
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: #ff8c00;
   position: absolute;
-  left: -5px;
-  top: -10px;
+  left: 50%;
+  top: -20px;
+  transform: translateX(-50%);
   font-family: Georgia, serif;
+  opacity: 0.8;
+}
+
+/* Hide partners quote on mobile */
+@media (max-width: 768px) {
+  .partners-quote {
+    display: none;
+  }
 }
 
 /* Footer Section */
@@ -1242,11 +1255,13 @@ nav {
   color: #b8bcc7;
   width: 100%;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100vh;
 }
 
 .footer-top {
   background: #1f1f1f;
-  padding: 40px 60px;
+  padding: 120px 60px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -1280,12 +1295,12 @@ nav {
 
 .contact-info p {
   color: #b8bcc7;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   line-height: 1.6;
 }
 
 .footer-main {
-  padding: 40px 60px 30px;
+  padding: 40px 60px 20px;
 }
 
 .footer-main .footer-container {
@@ -1431,7 +1446,7 @@ nav {
 
 .footer-bottom {
   background: #1a1a1a;
-  padding: 25px 60px;
+  padding: 60px 60px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 

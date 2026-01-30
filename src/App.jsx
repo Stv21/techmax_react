@@ -12,6 +12,10 @@ import './App.css'
 // Lazy load heavy components
 const Company = lazy(() => import('./components/Company'))
 const Solutions = lazy(() => import('./components/Solutions'))
+const MobilitySolutions = lazy(() => import('./components/MobilitySolutions'))
+const EnterpriseSolutions = lazy(() => import('./components/EnterpriseSolutions'))
+const AdvisorySolutions = lazy(() => import('./components/AdvisorySolutions'))
+const ProfessionalSolutions = lazy(() => import('./components/ProfessionalSolutions'))
 const NotFound = lazy(() => import('./components/NotFound'))
 
 function HomePage() {
@@ -79,6 +83,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/solutions" element={<Solutions />} />
+          <Route path="/solutions/mobility" element={<MobilitySolutions />} />
+          <Route path="/solutions/enterprise" element={<EnterpriseSolutions />} />
+          <Route path="/solutions/advisory" element={<AdvisorySolutions />} />
+          <Route path="/solutions/professional" element={<ProfessionalSolutions />} />
           <Route path="/company" element={<Company />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
