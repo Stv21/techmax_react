@@ -188,6 +188,7 @@ function Header({ onSubItemClick }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -210,7 +211,7 @@ function Header({ onSubItemClick }) {
   };
 
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+    <header className={`header ${isScrolled ? 'scrolled' : ''} ${location.pathname === '/company' ? 'company-header' : ''}`}>
       <div className="header-container" style={{ paddingRight: 0 }}>
         <div 
           className="logo"

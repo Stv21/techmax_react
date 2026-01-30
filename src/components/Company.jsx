@@ -91,7 +91,7 @@ function Company() {
         <section id="mission-vision" className="company-section mission-vision-section">
           <div className="mission-vision-grid">
             <div className="vision-card">
-              <img src="/img/vision.jpeg" alt="Vision" className="card-icon-img" />
+              <img src="/img/vision.png" alt="Vision" className="card-icon-img" />
               <h3 className="card-title">Our Vision</h3>
               <p className="card-text">
                 To shape the future of urban mobility by enabling seamless and secure fare collection experiences that make public transport simpler, smarter, and more inclusive for everyone.
@@ -99,7 +99,7 @@ function Company() {
             </div>
 
             <div className="mission-card">
-              <img src="/img/mission.jpeg" alt="Mission" className="card-icon-img" />
+              <img src="/img/mission.png" alt="Mission" className="card-icon-img" />
               <h3 className="card-title">Our Mission</h3>
               <p className="card-text">
                 To deliver intelligent Automatic Fare Collection systems through deep technical expertise, robust on-ground execution, and continuous innovation, helping transit agencies run secure, reliable, and scalable operations while improving everyday passenger journeys.
@@ -107,7 +107,7 @@ function Company() {
             </div>
 
             <div className="value-card">
-              <img src="/img/mission1.jpeg" alt="Values" className="card-icon-img" />
+              <img src="/img/mission1.png" alt="Values" className="card-icon-img" />
               <h3 className="card-title">Our Values</h3>
               <p className="card-text">
                 We believe excellence is achieved through teamwork and collaboration. Guided by ethics and integrity, our culture emphasizes agility, accountability, and disciplined execution to deliver meaningful outcomes for our partners and communities.
@@ -146,59 +146,94 @@ function Company() {
           <h2 className="section-heading">Our Journey</h2>
           <div className="timeline-horizontal">
             <div className="timeline-item">
-              <div className="timeline-content">
+              <div className="timeline-marker">
+                <div className="timeline-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
                 <div className="timeline-year">2015</div>
+              </div>
+              <div className="timeline-content">
                 <h3 className="timeline-title">Foundation</h3>
                 <p className="timeline-text">
-                  SAARTECH was founded with a vision to revolutionize the technology solutions industry. 
+                  SAARTECH was founded with a vision to revolutionize the technology solutions industry.
                   Started with a small team of 5 dedicated professionals in a single office.
                 </p>
               </div>
-              <div className="timeline-dot"></div>
             </div>
+
             <div className="timeline-item">
-              <div className="timeline-content">
+              <div className="timeline-marker">
+                <div className="timeline-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
                 <div className="timeline-year">2017</div>
+              </div>
+              <div className="timeline-content">
                 <h3 className="timeline-title">First Major Contract</h3>
                 <p className="timeline-text">
-                  Secured our first major metro transit project, establishing ourselves as a reliable AFC solutions provider. 
+                  Secured our first major metro transit project, establishing ourselves as a reliable AFC solutions provider.
                   Expanded team to 25 members and opened a second regional office.
                 </p>
               </div>
-              <div className="timeline-dot"></div>
             </div>
+
             <div className="timeline-item">
-              <div className="timeline-content">
+              <div className="timeline-marker">
+                <div className="timeline-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                    <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
                 <div className="timeline-year">2019</div>
+              </div>
+              <div className="timeline-content">
                 <h3 className="timeline-title">National Expansion</h3>
                 <p className="timeline-text">
-                  Expanded operations nationwide with 5 regional offices. Won multiple awards for innovation 
+                  Expanded operations nationwide with 5 regional offices. Won multiple awards for innovation
                   and excellence in technology implementation. Team grew to 100+ professionals.
                 </p>
               </div>
-              <div className="timeline-dot"></div>
             </div>
+
             <div className="timeline-item">
-              <div className="timeline-content">
+              <div className="timeline-marker">
+                <div className="timeline-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"/>
+                  </svg>
+                </div>
                 <div className="timeline-year">2022</div>
+              </div>
+              <div className="timeline-content">
                 <h3 className="timeline-title">International Presence</h3>
                 <p className="timeline-text">
-                  Launched international operations with projects in Southeast Asia and Middle East. 
+                  Launched international operations with projects in Southeast Asia and Middle East.
                   Established strategic partnerships with global technology leaders and R&D center.
                 </p>
               </div>
-              <div className="timeline-dot"></div>
             </div>
+
             <div className="timeline-item">
-              <div className="timeline-content">
+              <div className="timeline-marker">
+                <div className="timeline-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                  </svg>
+                </div>
                 <div className="timeline-year">2026</div>
+              </div>
+              <div className="timeline-content">
                 <h3 className="timeline-title">Innovation Leader</h3>
                 <p className="timeline-text">
-                  Now recognized as an industry leader with 300+ employees, serving 50+ major transit authorities 
+                  Now recognized as an industry leader with 300+ employees, serving 50+ major transit authorities
                   and enterprises. Continuing to push boundaries with AI-driven solutions and smart city initiatives.
                 </p>
               </div>
-              <div className="timeline-dot"></div>
             </div>
           </div>
         </section>
