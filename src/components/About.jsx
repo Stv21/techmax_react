@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import './About.css';
+import React from 'react';
+import '../styles.css';
 
 function About() {
   return (
@@ -15,9 +15,7 @@ function About() {
         </div>
         
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '15px' }}>
-          <Link to="/company#about-us" className="know-more-btn">
-            Know More
-          </Link>
+          <a className="hero-read-more-btn" href="/company" data-discover="true">Know More</a>
         </div>
       </div>
     </section>

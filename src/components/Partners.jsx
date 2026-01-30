@@ -78,10 +78,7 @@ function Partners() {
         </button>
         
         <div className="partners-quote">
-          <blockquote>
-            Partnerships drive innovation. Together with our trusted technology partners,
-            we deliver cutting-edge solutions that transform businesses.
-          </blockquote>
+          Partnerships drive innovation and transform businesses together.
         </div>
       </div>
     </section>

@@ -1217,20 +1217,15 @@ nav {
   margin-right: auto;
   text-align: center;
   box-shadow: 0 4px 15px rgba(255, 140, 0, 0.1);
-}
-
-.partners-quote blockquote {
   font-size: 1.2rem;
   font-style: italic;
   color: #444;
   line-height: 1.6;
-  margin: 0;
-  position: relative;
-  padding: 0 20px;
   font-weight: 400;
+  position: relative;
 }
 
-.partners-quote blockquote::before {
+.partners-quote::before {
   content: '"';
   font-size: 3rem;
   color: #ff8c00;
@@ -1256,13 +1251,13 @@ nav {
   width: 100%;
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  min-height: 100vh;
+  min-height: 80vh;
 }
 
 .footer-top {
   background: #1f1f1f;
-  padding: 120px 60px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 60px 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .footer-top .footer-container {
@@ -1300,7 +1295,8 @@ nav {
 }
 
 .footer-main {
-  padding: 40px 60px 20px;
+  padding: 30px 60px 15px;
+  background: #1f1f1f;
 }
 
 .footer-main .footer-container {
@@ -1445,8 +1441,8 @@ nav {
 }
 
 .footer-bottom {
-  background: #1a1a1a;
-  padding: 60px 60px;
+  background: #1f1f1f;
+  padding: 40px 60px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 

@@ -15,7 +15,7 @@ function MobilitySolutions() {
     <div className="solutions-page">
       <div className="solutions-hero">
         <div className="solutions-hero-content">
-          <h1 className="solutions-title">Mobility - Automatic Fare Collection System</h1>
+          <h1 className="solutions-title">Automatic Fare Collection System</h1>
           <p className="solutions-subtitle">
             Advanced AFC solutions for seamless urban mobility and efficient transit operations
           </p>

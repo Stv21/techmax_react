@@ -11,7 +11,7 @@ const navigationData = [
   {
     name: 'OUR SERVICES',
     dropdown: [
-      { name: ' Mobility - Automatic Fare Collection System', path: '/solutions/mobility' },
+      { name: 'Automatic Fare Collection System', path: '/solutions/mobility' },
       { name: 'Enterprise IT Infrastructure', path: '/solutions/enterprise' },
       { name: 'Advisory & Technical Consultancy', path: '/solutions/advisory' },
       { name: 'Professional Services (FMS)', path: '/solutions/professional' }
