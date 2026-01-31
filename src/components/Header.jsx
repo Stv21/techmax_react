@@ -205,6 +205,23 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
   
   // If it's a simple route link (e.g., /solutions)
   if (navItem.path) {
+    // For Careers, prefer a full navigation (refresh) so the page loads at the top
+    if (navItem.path === '/careers') {
+      return (
+        <li className="nav-item">
+          <a
+            className="nav-link"
+            href="/careers"
+            onClick={() => {
+              if (onMobileClose) onMobileClose();
+            }}
+          >
+            {navItem.name}
+          </a>
+        </li>
+      );
+    }
+
     return (
       <li className="nav-item">
         <span 

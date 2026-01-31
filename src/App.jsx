@@ -69,14 +69,11 @@ function ScrollToTop() {
         }
       }, 200);
     } else {
-      // On mobile/touch, avoid JS-driven scroll; force top only when appropriate
-      if (isDesktopPointer()) {
-        window.scrollTo(0, 0);
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
-      } else {
-        // For mobile, do not run auto-scroll; allow native browser behavior
-      }
+      // No hash: always scroll to top on route change so route content doesn't inherit previous scroll
+      // Use instant scroll to avoid janky transitions; if you prefer smooth, change behavior.
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
     }
   }, [pathname, hash]);
 

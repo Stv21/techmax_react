@@ -18,7 +18,7 @@ function Solutions() {
   
   const solutions = [
     {
-      title: 'Mobility - Automatic Fare Collection System',
+      title: 'Automatic Fare Collection System',
       image: '/img/solutions/mobility_afc.jpeg',
       desc: 'We power next-generation fare collection systems, streamlining ticketing, validation, and business logic to help operators deliver seamless, high-performance experiences at scale.'
     },
@@ -28,7 +28,7 @@ function Solutions() {
       desc: 'We deliver modern IT infrastructure that forms the foundation for digital transformation. From core data centers to edge environments, our solutions ensure the agility, performance, and resilience required to support innovation and business growth.'
     },
     {
-      title: 'Advisory & Technical Consultancy',
+      title: 'Advisory & Technical Consultancy Systems',
       image: '/img/solutions/technical_consultancy.jpeg',
       desc: 'Our Advisory & Consultancy Services enable organizations to make informed technology decisions, optimize IT infrastructure, and achieve business goals.'
     },
@@ -105,7 +105,7 @@ function Solutions() {
                     <div className="solution-overlay">
                       <h3 className="solution-title">{solution.title}</h3>
                       <button className="solution-learn-more-btn" onClick={() => handleCardClick(solution.title)}>
-                        Learn More
+                        Know More
                       </button>
                     </div>
                   </div>
