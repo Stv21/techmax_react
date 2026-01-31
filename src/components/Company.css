@@ -352,7 +352,6 @@ features-container {
 .vision-card:hover .card-icon-img,
 .value-card:hover .card-icon-img {
   opacity: 1;
-  animation: bounce 0.8s ease-in-out;
 }
 
 .card-title {
@@ -408,7 +407,7 @@ features-container {
 /* Team Section */
 .team-section {
   padding: 40px 0;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .team-intro {
@@ -538,11 +537,28 @@ features-container {
 
 /* Company History Section */
 .history-section {
-  padding: 80px 40px;
+  padding: 40px 40px 80px;
   margin-bottom: 60px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.05) 100%);
   border-radius: 20px;
   margin: 60px 20px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.history-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://paycraftsol.com/wp-content/uploads/2019/10/milestoneBgLaptop.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: -1;
 }
 
 .history-section .section-heading {
@@ -554,6 +570,8 @@ features-container {
   background-clip: text;
   font-size: 2.5rem;
   font-weight: 800;
+  position: relative;
+  z-index: 1;
 }
 
 /* Modern Horizontal Timeline */
@@ -562,31 +580,29 @@ features-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  flex-wrap: wrap;
+  /* keep icons on the same horizontal track; allow horizontal scrolling */
+  flex-wrap: nowrap;
   gap: 30px;
-  padding: 40px 20px 20px;
+  padding: 60px 20px 20px;
   overflow-x: auto;
 }
 
-.timeline-horizontal::before {
-  content: '';
+.timeline-wave-line {
   position: absolute;
-  top: 50%;
+  top: 80px;
   left: 20px;
   right: 20px;
-  height: 4px;
-  background: linear-gradient(90deg, #ff8c00, #ff6b35);
-  border-radius: 2px;
+  height: 30px;
   z-index: 1;
 }
 
 .timeline-item {
   position: relative;
-  width: 260px;
-  min-height: 200px;
+  width: 220px;
+  /* item will stretch so the inner card can be uniform height */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   z-index: 2;
 }
 
@@ -613,6 +629,12 @@ features-container {
   z-index: 3;
 }
 
+.timeline-icon img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
 .timeline-icon.icon-2021 { background: linear-gradient(135deg, #ff6b35, #ff8c00); }
 .timeline-icon.icon-2022 { background: linear-gradient(135deg, #4169e1, #00b3ff); }
 .timeline-icon.icon-2023 { background: linear-gradient(135deg, #ff6b35, #ff4757); }
@@ -620,28 +642,28 @@ features-container {
 .timeline-icon.icon-2025 { background: linear-gradient(135deg, #3742fa, #ff8c00); }
 .timeline-icon.icon-2026 { background: linear-gradient(135deg, #ff6b35, #9c88ff); }
 
-.timeline-icon svg {
-  width: 24px;
-  height: 24px;
-}
-
 .timeline-year {
   margin-top: 10px;
   font-size: 1.4rem;
   font-weight: 800;
-  color: #ff6b35;
+  color: white;
   text-align: center;
 }
 
 .timeline-content {
   background: #ffffff;
   padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border: none;
   width: 100%;
   text-align: center;
   position: relative;
+  /* enforce uniform card height on desktop */
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .timeline-content::before {
@@ -652,12 +674,22 @@ features-container {
   right: 0;
   height: 4px;
   background: linear-gradient(90deg, #ff6b35, #ff8c00);
-  border-radius: 16px 16px 0 0;
+  border-radius: 12px 12px 0 0;
 }
 
 .timeline-item:hover .timeline-content {
+  background: linear-gradient(135deg, #00b3ff, #4370b9);
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-item:hover .timeline-content::before {
+  background: linear-gradient(135deg, #00b3ff, #4370b9);
+}
+
+.timeline-item:hover .timeline-title,
+.timeline-item:hover .timeline-text {
+  color: #ffffff;
 }
 
 .timeline-title {
@@ -682,7 +714,7 @@ features-container {
 
 .timeline-text {
   font-size: 0.9rem;
-  color: #555;
+  color: #1a1a1a;
   line-height: 1.6;
   margin: 0;
 }
@@ -792,6 +824,10 @@ features-container {
     padding: 30px 20px;
   }
 
+  .history-section::before {
+    display: none;
+  }
+
   .team-section {
     padding: 0;
   }
@@ -869,9 +905,15 @@ features-container {
     height: 20px;
   }
 
+  .timeline-icon img {
+    width: 20px;
+    height: 20px;
+  }
+
   .timeline-year {
     font-size: 1.2rem;
     margin-top: 10px;
+    color: white;
   }
 
   .timeline-content {
@@ -886,10 +928,12 @@ features-container {
 
   .timeline-title {
     font-size: 1.1rem;
+    color: #1a1a1a;
   }
 
   .timeline-text {
     font-size: 0.9rem;
+    color: #1a1a1a;
   }
 }
 
@@ -953,6 +997,10 @@ features-container {
     flex-shrink: 0;
   }
 
+  .timeline-wave-line {
+    display: none;
+  }
+
   .timeline-icon {
     width: 45px;
     height: 45px;
@@ -963,9 +1011,15 @@ features-container {
     height: 18px;
   }
 
+  .timeline-icon img {
+    width: 18px;
+    height: 18px;
+  }
+
   .timeline-year {
     font-size: 1.1rem;
     margin-top: 10px;
+    color: white;
   }
 
   .timeline-content {
@@ -979,6 +1033,7 @@ features-container {
   .timeline-title {
     font-size: 1rem;
     text-align: left;
+    color: #1a1a1a;
   }
 
   .timeline-title::after {
@@ -988,5 +1043,6 @@ features-container {
 
   .timeline-text {
     font-size: 0.85rem;
+    color: #1a1a1a;
   }
 }

@@ -1,0 +1,117 @@
+.careers-hero{
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=400&fit=crop') center/cover no-repeat;
+  padding: 80px 0;
+  color: #fff;
+  text-align: left;
+}
+.careers-hero .hero-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+.careers-hero h1{
+  font-size: 36px;
+  letter-spacing: 1px;
+  margin: 0 0 8px 0;
+}
+.careers-hero .hero-sub{opacity:0.9}
+
+.life-at-company{background:#fff;padding:48px 0}
+.life-at-company .container{max-width:1100px;margin:0 auto;padding:0 20px}
+.life-at-company h2{color:#f7941d;margin-bottom:16px}
+.life-content{display:flex;gap:24px;align-items:flex-start}
+.life-text{flex:1;color:#333}
+.life-badge img{max-width:160px}
+
+.job-openings{background:#f7f7f7;padding:48px 0}
+.job-openings .container{max-width:1100px;margin:0 auto;padding:0 20px}
+.accordion-item{border-bottom:1px solid #e0e0e0;padding:12px 0}
+.accordion-toggle{width:100%;text-align:left;border:0;background:transparent;padding:10px 0;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+.accordion-panel{max-height:0;overflow:hidden;transition:max-height .28s ease}
+.accordion-panel.open{max-height:400px;padding:12px 0}
+.apply-btn{display:inline-block;background:#f7941d;color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none}
+
+.fun-at-work{padding:48px 0;background:#fff}
+.fun-at-work .gallery{display:flex;gap:16px}
+.fun-at-work .gallery img{flex:1;height:160px;object-fit:cover;border-radius:6px}
+
+.job-panel-inner{display:flex;gap:18px;align-items:flex-start}
+.careers-hero{
+  background: linear-gradient(180deg, rgba(6,30,63,0.6), rgba(6,30,63,0.3)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&h=640&fit=crop') center/cover no-repeat;
+  padding: 100px 0 64px;
+  color: #fff;
+  text-align: left;
+}
+.careers-hero .hero-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.careers-hero h1{
+  font-size:44px;
+  line-height:1.05;
+  margin:0 0 8px 0;
+  font-weight:700;
+}
+.careers-hero .hero-sub{
+  color:rgba(255,255,255,0.92);
+  margin-top:8px;
+  font-size:18px;
+}
+
+:root{
+  --accent:#f7941d;
+  --muted:#6b7280;
+  --card-bg:#ffffff;
+  --surface:#f7f8fb;
+}
+
+.life-at-company{background:var(--card-bg);padding:56px 0}
+.life-at-company .container{max-width:1100px;margin:0 auto;padding:0 20px}
+.life-at-company h2{color:var(--accent);margin-bottom:18px;font-size:22px}
+.life-content{display:flex;gap:28px;align-items:flex-start}
+.life-text{flex:1;color:#222;line-height:1.6}
+.life-badge img{max-width:140px;border-radius:6px}
+
+.job-openings{background:var(--surface);padding:56px 0}
+.job-openings .container{max-width:1200px;margin:0 auto;padding:0 20px}
+.job-openings h2{color:#111;margin-bottom:18px;font-size:22px}
+.accordion{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.accordion-item{background:var(--card-bg);border-radius:12px;padding:0;box-shadow:0 6px 18px rgba(15,23,42,0.06);overflow:hidden;display:flex;flex-direction:column}
+.accordion-toggle{width:100%;text-align:left;border:0;background:transparent;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;font-weight:700;cursor:pointer}
+.accordion-toggle:hover{background:linear-gradient(90deg, rgba(247,148,29,0.04), rgba(247,148,29,0.02))}
+.job-title{display:block;font-size:15px}
+.job-location{color:var(--muted);font-weight:600;font-size:13px}
+.accordion-panel{max-height:0;overflow:hidden;transition:max-height .36s cubic-bezier(.2,.9,.2,1),padding .2s ease}
+.accordion-panel.open{max-height:480px;padding:18px 20px}
+.job-panel-inner{display:flex;gap:18px;align-items:flex-start}
+.job-image-wrap{flex:0 0 160px}
+.job-image{width:100%;height:110px;object-fit:cover;border-radius:8px}
+.job-panel-text{flex:1;color:#333}
+.apply-row{margin-top:12px}
+.apply-btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700}
+
+.fun-at-work{padding:48px 0;background:var(--card-bg)}
+.fun-at-work .container{max-width:1100px;margin:0 auto;padding:0 20px}
+.fun-at-work h2{color:var(--accent);margin-bottom:18px}
+.fun-at-work .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.fun-at-work .gallery img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+
+@media (max-width:1024px){
+  .careers-hero{padding:76px 0 40px}
+  .careers-hero h1{font-size:36px}
+  .job-image-wrap{flex:0 0 140px}
+}
+
+@media (max-width:720px){
+  .careers-hero{padding:56px 0}
+  .careers-hero h1{font-size:26px}
+  .life-content{flex-direction:column;gap:18px}
+  .accordion{grid-template-columns:1fr}
+  .job-panel-inner{flex-direction:column}
+  .job-image{height:200px}
+  .fun-at-work .gallery{grid-template-columns:1fr}
+}

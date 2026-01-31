@@ -1,6 +1,6 @@
 # TechMax React Project
 
-This is a modern React application built with Vite for the TechMax website.
+This is a modern React application built with Vite for the Saartech website.
 
 ## Project Structure
 - Components-based architecture

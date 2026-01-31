@@ -5,27 +5,47 @@ function Company() {
   const [readMore, setReadMore] = useState(false);
 
   useEffect(() => {
+    const scrollToWithHeaderOffset = (element, extra = 12) => {
+      if (!element) return;
+      const header = document.querySelector('.header');
+      const headerHeight = header ? header.offsetHeight : 70;
+      const y = element.getBoundingClientRect().top + window.pageYOffset - headerHeight - extra;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    };
+
+    // Auto-scroll behaviour: enable only for desktop (non-touch, pointer: fine)
+    const isDesktopAutoScroll = () => {
+      try {
+        const hasFinePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+        const notTouch = !('ontouchstart' in window) && !navigator.maxTouchPoints;
+        return window.innerWidth > 768 && hasFinePointer && notTouch;
+      } catch (e) {
+        return window.innerWidth > 768;
+      }
+    };
+
     // Check if there's a hash in the URL
     const hash = window.location.hash;
     
-    if (hash) {
-      // If there's a hash, scroll to that section
+    if (hash && isDesktopAutoScroll()) {
+      // If there's a hash, scroll to that section on desktop only
       setTimeout(() => {
         const element = document.querySelector(hash);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          scrollToWithHeaderOffset(element);
         }
       }, 100);
     } else {
-      // If no hash, reset scroll to top
+      // If no hash or on mobile, reset scroll to top but avoid JS-driven auto-scroll on touch devices
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
       
-      const timer = setTimeout(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-      }, 0);
-      
-      return () => clearTimeout(timer);
+      if (isDesktopAutoScroll()) {
+        const timer = setTimeout(() => {
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        }, 0);
+        return () => clearTimeout(timer);
+      }
     }
   }, []);
 
@@ -145,12 +165,21 @@ function Company() {
         <section id="company-history" className="company-section history-section">
           <h2 className="section-heading">Our Journey</h2>
           <div className="timeline-horizontal">
+            <div className="timeline-wave-line">
+              <svg width="100%" height="30" viewBox="0 0 1400 30" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style={{stopColor:'#ffffff', stopOpacity:1}} />
+                    <stop offset="100%" style={{stopColor:'#ffffff', stopOpacity:1}} />
+                  </linearGradient>
+                </defs>
+                <path d="M0,15 Q100,5 200,15 T400,15 T600,15 T800,15 T1000,15 T1200,15 T1400,15" stroke="url(#waveGradient)" strokeWidth="6" fill="none" strokeLinecap="round"/>
+              </svg>
+            </div>
             <div className="timeline-item">
               <div className="timeline-marker">
                 <div className="timeline-icon icon-2021">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
+                  <img src="https://paycraftsol.com/wp-content/uploads/2019/10/icon2014.png" alt="2021" />
                 </div>
                 <div className="timeline-year">2021</div>
               </div>
@@ -165,9 +194,7 @@ function Company() {
             <div className="timeline-item">
               <div className="timeline-marker">
                 <div className="timeline-icon icon-2022">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
+                  <img src="https://paycraftsol.com/wp-content/uploads/2019/10/icon2015.png" alt="2022" />
                 </div>
                 <div className="timeline-year">2022</div>
               </div>
@@ -182,10 +209,7 @@ function Company() {
             <div className="timeline-item">
               <div className="timeline-marker">
                 <div className="timeline-icon icon-2023">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
-                    <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
+                  <img src="https://paycraftsol.com/wp-content/uploads/2019/10/icon2016.png" alt="2023" />
                 </div>
                 <div className="timeline-year">2023</div>
               </div>
@@ -200,9 +224,7 @@ function Company() {
             <div className="timeline-item">
               <div className="timeline-marker">
                 <div className="timeline-icon icon-2024">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"/>
-                  </svg>
+                  <img src="https://paycraftsol.com/wp-content/uploads/2019/10/icon2017.png" alt="2024" />
                 </div>
                 <div className="timeline-year">2024</div>
               </div>
@@ -217,9 +239,7 @@ function Company() {
             <div className="timeline-item">
               <div className="timeline-marker">
                 <div className="timeline-icon icon-2025">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                  </svg>
+                  <img src="https://paycraftsol.com/wp-content/uploads/2019/10/icon2018.png" alt="2025" />
                 </div>
                 <div className="timeline-year">2025</div>
               </div>
@@ -234,16 +254,14 @@ function Company() {
             <div className="timeline-item">
               <div className="timeline-marker">
                 <div className="timeline-icon icon-2026">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                  </svg>
+                  <img src="https://paycraftsol.com/wp-content/uploads/2019/10/icon2019.png" alt="2026" />
                 </div>
                 <div className="timeline-year">2026</div>
               </div>
               <div className="timeline-content">
                 <h3 className="timeline-title">Industry Leadership</h3>
                 <p className="timeline-text">
-                  Recognized leader with 300+ employees, serving 50+ transit authorities and pushing sustainable urban mobility.
+                  Leader with 300+ employees, serving 50+ transit authorities and advancing sustainable urban mobility.
                 </p>
               </div>
             </div>

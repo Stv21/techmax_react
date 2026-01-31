@@ -1,27 +1,50 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Footer.css';
 
+const isDesktopPointer = () => {
+  try {
+    const finePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+    const notTouch = !('ontouchstart' in window) && !navigator.maxTouchPoints;
+    return window.innerWidth > 768 && finePointer && notTouch;
+  } catch (e) {
+    return window.innerWidth > 768;
+  }
+};
+
+const scrollToWithHeaderOffset = (element, extra = 12) => {
+  if (!element) return;
+  const header = document.querySelector('.header');
+  const headerHeight = header ? header.offsetHeight : 70;
+  const y = element.getBoundingClientRect().top + window.pageYOffset - headerHeight - extra;
+  window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+};
+
 function Footer() {
   const navigate = useNavigate();
 
   const handleNavClick = (path, scrollTo = null) => {
-    if (scrollTo) {
-      if (window.location.pathname !== '/') {
-        navigate('/');
-        setTimeout(() => {
+    if (isDesktopPointer()) {
+      if (scrollTo) {
+        if (window.location.pathname !== '/') {
+          navigate('/');
+          setTimeout(() => {
+            const element = document.getElementById(scrollTo);
+            if (element) scrollToWithHeaderOffset(element);
+          }, 100);
+        } else {
           const element = document.getElementById(scrollTo);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 100);
-      } else {
-        const element = document.getElementById(scrollTo);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          if (element) scrollToWithHeaderOffset(element);
         }
+      } else {
+        navigate(path);
       }
     } else {
-      navigate(path);
+      // Mobile/touch: prefer native full-page navigation to ensure Safari handles fragments reliably
+      if (scrollTo) {
+        window.location.href = `/#${scrollTo}`;
+      } else {
+        window.location.href = path;
+      }
     }
   };
 
@@ -61,9 +84,9 @@ function Footer() {
           <div className="footer-col">
             <h3>Quick Links</h3>
             <ul className="footer-links">
-              <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('/company'); }}>About Us</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('/', 'partners'); }}>Our Partners</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('/', 'contact'); }}>Contact Us</a></li>
+              <li><a href="/company" onClick={(e) => { if (isDesktopPointer()) { e.preventDefault(); handleNavClick('/company'); } }}>About Us</a></li>
+              <li><a href="/#partners" onClick={(e) => { if (isDesktopPointer()) { e.preventDefault(); handleNavClick('/', 'partners'); } }}>Our Partners</a></li>
+              <li><a href="/#contact" onClick={(e) => { if (isDesktopPointer()) { e.preventDefault(); handleNavClick('/', 'contact'); } }}>Contact Us</a></li>
               <li><Link to="/company">Company Profile</Link></li>
             </ul>
           </div>
@@ -118,8 +141,8 @@ function Footer() {
         <div className="footer-container">
           <p className="copyright">© 2026 Saartech Solutions. All Rights Reserved.</p>
           <div className="footer-bottom-links">
-            <a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('/company'); }}>Privacy Policy</a>
-            <a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('/company'); }}>Terms of Service</a>
+            <a href="/company" onClick={(e) => { if (isDesktopPointer()) { e.preventDefault(); handleNavClick('/company'); } }}>Privacy Policy</a>
+            <a href="/company" onClick={(e) => { if (isDesktopPointer()) { e.preventDefault(); handleNavClick('/company'); } }}>Terms of Service</a>
           </div>
         </div>
       </div>

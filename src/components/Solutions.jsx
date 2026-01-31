@@ -40,12 +40,29 @@ function Solutions() {
           setHighlightedCard(targetIndex);
           setTimeout(() => {
             if (cardRefs.current[targetIndex]) {
-              cardRefs.current[targetIndex].scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'center' 
-              });
-              // Add offset to account for fixed header
-              window.scrollBy(0, 225);
+              const isDesktop = (() => {
+                try {
+                  const fine = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+                  const notTouch = !('ontouchstart' in window) && !navigator.maxTouchPoints;
+                  return window.innerWidth > 768 && fine && notTouch;
+                } catch (e) { return window.innerWidth > 768; }
+              })();
+
+              const scrollToWithHeaderOffset = (element, extra = 12) => {
+                if (!element) return;
+                const header = document.querySelector('.header');
+                const headerHeight = header ? header.offsetHeight : 70;
+                const y = element.getBoundingClientRect().top + window.pageYOffset - headerHeight - extra;
+                window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+              };
+
+              if (isDesktop) {
+                scrollToWithHeaderOffset(cardRefs.current[targetIndex]);
+              } else {
+                // On mobile, avoid JS-driven auto scroll; allow native behavior
+                // but bring focus to the element for accessibility
+                try { cardRefs.current[targetIndex].focus(); } catch (e) {}
+              }
             }
           }, 100);
         }, 200);

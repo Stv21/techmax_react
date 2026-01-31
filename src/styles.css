@@ -1002,6 +1002,25 @@ nav {
   transition: color 0.3s ease;
 }
 
+/* Desktop default sizes restored. Keep larger images on small screens only. */
+@media (max-width: 768px) {
+  .solution-card {
+    max-height: 460px !important;
+    min-height: 420px !important;
+    flex: none !important;
+    width: 100% !important;
+  }
+  .solution-image {
+    height: 260px !important;
+  }
+  .solution-title {
+    font-size: 0.95rem !important;
+  }
+  .solution-desc {
+    font-size: 0.85rem !important;
+  }
+}
+
 .solution-card:hover .solution-title {
   color: #ff8c00;
 }
@@ -1250,10 +1269,149 @@ nav {
   position: relative;
 }
 
-/* Hide partners quote on mobile */
+/* Partners quote: show on mobile with tighter styling */
 @media (max-width: 768px) {
   .partners-quote {
-    display: none;
+    display: block;
+    padding: 18px 16px;
+    font-size: 1rem;
+    width: 95%;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  /* Center the Know More button on mobile */
+  .about-section .hero-read-more-btn,
+  .about-container > div > a.hero-read-more-btn {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  /* Ensure hero 'Know More' sits below the hero heading on small screens */
+  .about-in-hero {
+    position: static !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 64px;
+    padding: 0 16px;
+  }
+
+  .about-in-hero .hero-read-more-btn {
+    margin-top: 28px;
+    margin-bottom: 12px;
+  }
+
+  /* Mobile scaling, spacing and readability overrides (strict mobile-only rules) */
+  /* Increase vertical rhythm and make sections full-width */
+  .company-container,
+  .company-section,
+  .about-section,
+  .history-section,
+  .team-section,
+  .mission-vision-section,
+  .footer-section {
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box;
+  }
+
+  h3, .subsection-heading, .card-title {
+    font-size: 1.35rem !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Ensure solution cards keep smaller text even though h3 is larger globally on mobile */
+  .solutions-section .solution-title {
+    font-size: 0.95rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .solutions-section .solution-desc {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Make cards, tiles and blocks more spacious */
+  .vision-card, .mission-card, .value-card, .team-card, .timeline-content, .company-about-text, .company-description-expanded {
+    padding: 18px !important;
+    margin-bottom: 18px !important;
+    width: 100% !important;
+    max-width: none !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06) !important;
+  }
+
+  /* Prevent fixed-height/overflow clipping on mobile */
+  .timeline-item, .team-image-wrapper, .team-card, .vision-card, .mission-card {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Make timeline content larger and readable */
+  .timeline-horizontal {
+    flex-direction: column !important;
+    gap: 18px !important;
+    overflow: visible !important;
+  }
+
+  .timeline-wave-line { display:none !important; }
+
+  /* Tap targets and link reliability on iOS Safari */
+  a, button {
+    min-height: 44px !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.06);
+    pointer-events: auto !important;
+  }
+
+  /* Ensure interactive elements are tappable and avoid preventDefault side-effects */
+  .nav-link, .hero-read-more-btn, .read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px !important;
+  }
+
+  /* Overlay / pseudo-element safety: decorative layers must not block taps */
+  .footer-section::before,
+  .history-section::before {
+    pointer-events: none !important;
+  }
+
+  /* Allow children of overlays to remain interactive */
+  .footer-section > *,
+  .history-section > * {
+    pointer-events: auto !important;
+  }
+
+  /* Fix: remove unintended top gap on iPhone when landing on first page */
+  .solutions-section,
+  .video-background,
+  .company-section,
+  .about-section {
+    scroll-margin-top: 0 !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Make Our Services section taller on small screens so cards don't feel short */
+  .solutions-section {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+    min-height: 60vh !important;
   }
 }
 

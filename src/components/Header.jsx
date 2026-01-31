@@ -2,7 +2,31 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Header.css';
 
-// Navigation data structure with dropdown items
+// Helper: determine if we should run desktop-only JS behaviors
+const isDesktopPointer = () => {
+  try {
+    const finePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+    const notTouch = !('ontouchstart' in window) && !navigator.maxTouchPoints;
+    return window.innerWidth > 768 && finePointer && notTouch;
+  } catch (e) {
+    return window.innerWidth > 768;
+  }
+};
+
+// Helper: scroll with header offset
+const scrollToWithHeaderOffset = (element, extra = 12) => {
+  if (!element) return;
+  try {
+    const header = document.querySelector('.header');
+    const headerHeight = header ? header.offsetHeight : 70;
+    const y = element.getBoundingClientRect().top + window.pageYOffset - headerHeight - extra;
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  } catch (e) {
+    try { element.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (err) {}
+  }
+};
+
+// Navigation data structure with dropdown items (ordered)
 const navigationData = [
   {
     name: 'ABOUT US',
@@ -20,6 +44,10 @@ const navigationData = [
   {
     name: 'PARTNERS',
     scrollTo: 'partners'
+  },
+  {
+    name: 'CAREERS',
+    path: '/careers'
   },
   {
     name: 'CONTACT US',
@@ -61,20 +89,21 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
           <span 
             className="nav-link dropdown-toggle"
             onClick={() => {
-              // Scroll to solutions section on main page
-              if (location.pathname !== '/') {
-                navigate('/');
-                setTimeout(() => {
+              // Desktop: SPA navigate + smooth scroll. Mobile/touch: prefer full navigation so Safari handles hashes reliably.
+              if (isDesktopPointer()) {
+                if (location.pathname !== '/') {
+                  navigate('/');
+                  setTimeout(() => {
+                    const element = document.getElementById('solutions');
+                    if (element) scrollToWithHeaderOffset(element);
+                  }, 100);
+                } else {
                   const element = document.getElementById('solutions');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }, 100);
-              } else {
-                const element = document.getElementById('solutions');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
+                  if (element) scrollToWithHeaderOffset(element);
                 }
+              } else {
+                // let the browser handle it (navigate to homepage with fragment)
+                window.location.href = '/#solutions';
               }
               if (onMobileClose) onMobileClose();
             }}
@@ -93,15 +122,19 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
                 return (
                 <li key={subIndex}>
                   <a 
-                    href="#"
+                    href={subItem.path}
                     className={isSubItemActive ? 'active' : ''}
                     onClick={(e) => {
-                      e.preventDefault();
-                      navigate(subItem.path);
-                      setIsDropdownOpen(false);
-                      setIsClickOpened(false);
-                      if (onMobileClose) onMobileClose();
-                      if (onSubItemClick) onSubItemClick(subItem.name);
+                      if (isDesktopPointer()) {
+                        e.preventDefault();
+                        navigate(subItem.path);
+                        setIsDropdownOpen(false);
+                        if (onMobileClose) onMobileClose();
+                        if (onSubItemClick) onSubItemClick(subItem.name);
+                      } else {
+                        // mobile: allow native navigation (full page) for reliability on iOS Safari
+                        // no preventDefault
+                      }
                     }}
                   >
                     {subItem.name}
@@ -120,23 +153,23 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
     return (
       <li className="nav-item">
         <a 
-          href={`#${navItem.scrollTo}`}
+          href={`/#${navItem.scrollTo}`}
           className="nav-link"
           onClick={(e) => {
-            e.preventDefault();
-            if (location.pathname !== '/') {
-              navigate('/');
-              setTimeout(() => {
+            if (isDesktopPointer()) {
+              e.preventDefault();
+                if (location.pathname !== '/') {
+                navigate('/');
+                setTimeout(() => {
+                  const element = document.getElementById(navItem.scrollTo);
+                  if (element) scrollToWithHeaderOffset(element);
+                }, 100);
+              } else {
                 const element = document.getElementById(navItem.scrollTo);
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }, 100);
-            } else {
-              const element = document.getElementById(navItem.scrollTo);
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
+                if (element) scrollToWithHeaderOffset(element);
               }
+            } else {
+              // mobile: allow browser to navigate to /#fragment for consistent native behavior
             }
             if (onMobileClose) onMobileClose();
           }}
@@ -151,15 +184,21 @@ const NavItem = ({ navItem, onSubItemClick, onMobileClose }) => {
   if (navItem.path === '/company') {
     return (
       <li className="nav-item">
-        <span 
-          className={`nav-link ${isActive ? 'active' : ''}`}
-          onClick={() => {
-            navigate('/company');
+        <a 
+          className={`nav-link ${isActive ? 'active' : ''}`} 
+          href="/company"
+          onClick={(e) => {
+            if (isDesktopPointer()) {
+              e.preventDefault();
+              navigate('/company');
+            } else {
+              // mobile: allow native navigation
+            }
             if (onMobileClose) onMobileClose();
           }}
         >
           {navItem.name}
-        </span>
+        </a>
       </li>
     );
   }
@@ -202,6 +241,14 @@ function Header({ onSubItemClick }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToWithHeaderOffset = (element, extra = 12) => {
+    if (!element) return;
+    const header = document.querySelector('.header');
+    const headerHeight = header ? header.offsetHeight : 70;
+    const y = element.getBoundingClientRect().top + window.pageYOffset - headerHeight - extra;
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  };
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -222,12 +269,11 @@ function Header({ onSubItemClick }) {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }, 100);
           }}
-          style={{ cursor: 'pointer' }}
         >
           <img src="/img/logo1.png" alt="TechMax" />
         </div>
         
-        <button 
+        <button
           className={`mobile-menu-toggle ${isMobileMenuOpen ? 'open' : ''}`}
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
