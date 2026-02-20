@@ -82,7 +82,7 @@ function Company() {
             <div className="company-about-text">
               <p className="company-description">
               
-                We are a technology-driven IT solutions company specializing in advanced fare collection systems and IT infrastructure management for modern transit ecosystems. With deep domain expertise and an agile delivery approach, we enable transit authorities to deploy future-ready solutions that operate seamlessly, enhance passenger mobility, and improve operational efficiency and reliability. By combining strong technical capability with proven on-ground execution, we deliver smart, secure, scalable, and resilient Automatic Fare Collection systems, driven by continuous innovation and strategic technology partnerships.
+                We are a technology-driven IT solutions company specializing in advanced fare collection systems and IT infrastructure management for modern transit ecosystems. With deep domain expertise and an agile delivery approach, we enable transit authorities to deploy future-ready solutions that operate seamlessly, enhance passenger mobility, and improve operational efficiency and reliability. By combining strong technical capability with proven on-ground execution, we deliver smart, secure, scalable, and resilient Automatic Fare Collection systems<span className="hide-on-mobile">, driven by continuous innovation and strategic technology partnerships</span>.
               </p>
               {readMore && (
                 <div className="company-description-expanded" key="expanded-content">
@@ -163,7 +163,7 @@ function Company() {
 
         {/* Company History */}
         <section id="company-history" className="company-section history-section">
-          <h2 className="section-heading">Our Journey</h2>
+          <h2 className="section-heading" style={{ marginBottom: '10px' }}>Our Journey</h2>
           <div className="timeline-horizontal">
             <div className="timeline-wave-line">
               <svg width="100%" height="30" viewBox="0 0 1400 30" preserveAspectRatio="none">

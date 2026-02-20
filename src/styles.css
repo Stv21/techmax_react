@@ -373,6 +373,7 @@ nav {
   left: 0;
   background: rgba(20, 20, 20, 0.95);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   min-width: 320px;
   list-style: none;
   padding: 10px 0;
@@ -1002,24 +1003,7 @@ nav {
   transition: color 0.3s ease;
 }
 
-/* Desktop default sizes restored. Keep larger images on small screens only. */
-@media (max-width: 768px) {
-  .solution-card {
-    max-height: 460px !important;
-    min-height: 420px !important;
-    flex: none !important;
-    width: 100% !important;
-  }
-  .solution-image {
-    height: 260px !important;
-  }
-  .solution-title {
-    font-size: 0.95rem !important;
-  }
-  .solution-desc {
-    font-size: 0.85rem !important;
-  }
-}
+/* Mobile card sizes are handled in the main 768px media query below */
 
 .solution-card:hover .solution-title {
   color: #ff8c00;
@@ -1292,15 +1276,16 @@ nav {
 
   /* Ensure hero 'Know More' sits below the hero heading on small screens */
   .about-in-hero {
-    position: static !important;
-    bottom: auto !important;
-    left: auto !important;
-    right: auto !important;
+    position: absolute !important;
+    bottom: calc(120px + env(safe-area-inset-bottom, 0px)) !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
     transform: none !important;
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 64px;
+    margin-top: 0;
     padding: 0 16px;
   }
 
@@ -1312,7 +1297,6 @@ nav {
   /* Mobile scaling, spacing and readability overrides (strict mobile-only rules) */
   /* Increase vertical rhythm and make sections full-width */
   .company-container,
-  .company-section,
   .about-section,
   .history-section,
   .team-section,
@@ -1320,13 +1304,37 @@ nav {
   .footer-section {
     width: 100% !important;
     max-width: none !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
     padding-top: 28px !important;
     padding-bottom: 28px !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
     box-sizing: border-box;
+  }
+
+  /* Nested sections inside .company-container should not add extra side padding */
+  .company-section {
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .company-about-wrapper {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .company-description,
+  .company-description-expanded {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   h3, .subsection-heading, .card-title {
@@ -1411,7 +1419,7 @@ nav {
   .solutions-section {
     padding-top: 36px !important;
     padding-bottom: 36px !important;
-    min-height: 60vh !important;
+    min-height: 80vh !important;
   }
 }
 
@@ -1443,6 +1451,7 @@ nav {
   padding: 60px 60px 40px;
   background: rgba(31, 31, 31, 0.95);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   position: relative;
   z-index: 1;
 }
@@ -1916,10 +1925,15 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
+  html.home-page {
+    scroll-snap-type: none !important;
+  }
+
   /* Header Mobile - Logo on right, hamburger on left */
   .header {
     position: fixed;
     background: white;
+    padding-top: env(safe-area-inset-top, 0px);
   }
   
   .header-container {
@@ -1954,12 +1968,16 @@ nav {
     right: -100%;
     width: 80%;
     max-width: 350px;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 60px); /* fallback */
+    height: calc(100dvh - 60px);
     background: rgba(20, 20, 20, 0.98);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     transition: right 0.3s ease;
     padding: 20px;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     z-index: 999;
   }
 
@@ -2003,10 +2021,13 @@ nav {
     font-size: 0.95rem;
   }
   
-  /* Hero Section Mobile */
+  /* Hero Section Mobile — subtract header; use -webkit-fill-available as iOS fallback */
   .video-background {
-    height: calc(100vh - 60px);
+    height: calc(100vh - 60px); /* fallback */
+    height: calc(100dvh - 60px);
+    max-height: -webkit-fill-available;
     margin-top: 60px;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   
   .video-background video {
@@ -2017,6 +2038,7 @@ nav {
   
   .video-overlay {
     padding: 20px 15px;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
     justify-content: center;
   }
 
@@ -2035,7 +2057,7 @@ nav {
   }
   
   .about-in-hero {
-    margin-top: 25px;
+    margin-top: 0;
   }
   
   .about-hero-text {
@@ -2050,7 +2072,7 @@ nav {
 
   .bottom-right-tagline {
     position: absolute;
-    bottom: 20px;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -2113,8 +2135,8 @@ nav {
   
   /* Solutions Section Mobile - Grid instead of Carousel */
   .solutions-section {
-    padding: 30px 0 20px 0;
-    min-height: auto;
+    padding: 40px 0 40px 0;
+    min-height: 80vh;
   }
   
   .solutions-heading {
@@ -2135,27 +2157,28 @@ nav {
   .solutions-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 14px;
     padding: 0 15px;
   }
 
   .solution-card {
-    max-height: 220px;
-    min-height: 220px;
-    flex: none;
-    width: 100%;
+    max-height: none !important;
+    min-height: 260px !important;
+    flex: none !important;
+    width: 100% !important;
   }
 
   .solution-image {
-    height: 110px;
+    height: 180px !important;
+    object-fit: cover;
   }
 
   .solution-overlay {
-    padding: 8px;
+    padding: 10px 8px;
   }
 
   .solution-title {
-    font-size: 0.98rem;
+    font-size: 1rem;
     margin-bottom: 4px;
   }
 
@@ -2254,12 +2277,26 @@ nav {
     font-size: 0.8rem;
   }
 
+  /* Disable all scroll-snap on mobile */
+  .video-background,
+  .solutions-section,
+  .partners-section,
+  .about-section,
+  .footer-section {
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+  }
+
   /* Footer Mobile */
   .footer-top,
   .footer-main,
   .footer-bottom {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+
+  .footer-bottom {
+    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
   }
   
   .footer-top {

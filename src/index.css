@@ -12,12 +12,22 @@ html.home-page {
   scroll-snap-type: y mandatory;
 }
 
+@media screen and (max-width: 768px) {
+  html, html.home-page {
+    scroll-snap-type: none !important;
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font-family: "Mona Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 32px;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {

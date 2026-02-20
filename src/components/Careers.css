@@ -36,9 +36,19 @@
 .fun-at-work .gallery img{flex:1;height:160px;object-fit:cover;border-radius:6px}
 
 .job-panel-inner{display:flex;gap:18px;align-items:flex-start}
+.careers-page {
+  padding-top: 70px; /* offset fixed header */
+}
+
+@media (max-width: 768px) {
+  .careers-page {
+    padding-top: 60px;
+  }
+}
+
 .careers-hero{
   background: linear-gradient(180deg, rgba(6,30,63,0.6), rgba(6,30,63,0.3)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&h=640&fit=crop') center/cover no-repeat;
-  padding: 100px 0 64px;
+  padding: 80px 0 64px;
   color: #fff;
   text-align: left;
 }
@@ -75,6 +85,9 @@
 .life-content{display:flex;gap:28px;align-items:flex-start}
 .life-text{flex:1;color:#222;line-height:1.6}
 .life-badge img{max-width:140px;border-radius:6px}
+
+/* Utility: justified text without inline styles */
+.justified{ text-align:justify; text-justify:inter-word; }
 
 .job-openings{background:var(--surface);padding:56px 0}
 .job-openings .container{max-width:1200px;margin:0 auto;padding:0 20px}

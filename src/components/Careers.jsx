@@ -38,14 +38,13 @@ export default function Careers() {
 
       <section className="life-at-company">
         <div className="container">
-          <h2>LIFE AT TECHMAX</h2>
+          <h2>Life at SaarTech</h2>
           <div className="life-content">
             <div className="life-text">
-              <p>
-                TechMax is a young enterprising company committed to innovation and collaboration. We
-                look for talented professionals who want to solve real world problems and grow with us.
+              <p className="justified">
+                SaarTech is a young and dynamic organization built on innovation, collaboration, and purpose. We welcome talented individuals who are eager to tackle real-world problems and build impactful solutions with us. We foster an environment where personal ambitions and professional growth go hand in hand, supported by strong learning and career development opportunities.
               </p>
-              <p>
+              <p className="justified">
                 We believe in a meaningful alignment of personal and professional goals, and we
                 provide opportunities for learning and career progression.
               </p>
@@ -75,7 +74,7 @@ export default function Careers() {
                       </div>
                     )}
                     <div className="job-panel-text">
-                      <p>{job.content}</p>
+                      <p className="justified">{job.content}</p>
                       <div className="apply-row">
                         <a className="apply-btn" href="#">Apply Now</a>
                       </div>

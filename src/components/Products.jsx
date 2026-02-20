@@ -54,9 +54,9 @@ function Solutions() {
   const handleCardClick = (title) => {
     // Map titles to new service routes
     const serviceMap = {
-      'Mobility - Automatic Fare Collection System': '/solutions/mobility',
+      'Automatic Fare Collection System': '/solutions/mobility',
       'Enterprise IT Infrastructure Systems': '/solutions/enterprise',
-      'Advisory & Technical Consultancy': '/solutions/advisory',
+      'Advisory & Technical Consultancy Systems': '/solutions/advisory',
       'Professional Services (FMS) Systems': '/solutions/professional'
     };
     const route = serviceMap[title];
