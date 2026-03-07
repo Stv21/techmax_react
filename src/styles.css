@@ -1415,11 +1415,11 @@ nav {
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Make Our Services section taller on small screens so cards don't feel short */
+  /* Make Our Services section appropriately sized on small screens */
   .solutions-section {
-    padding-top: 36px !important;
-    padding-bottom: 36px !important;
-    min-height: 80vh !important;
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+    min-height: auto !important;
   }
 }
 
@@ -2157,19 +2157,21 @@ nav {
   .solutions-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    padding: 0 15px;
+    gap: 10px;
+    padding: 0 12px;
   }
 
   .solution-card {
     max-height: none !important;
-    min-height: 260px !important;
+    min-height: 240px !important;
     flex: none !important;
     width: 100% !important;
+    border-radius: 8px;
+    overflow: hidden;
   }
 
   .solution-image {
-    height: 180px !important;
+    height: 160px !important;
     object-fit: cover;
   }
 
@@ -2178,8 +2180,8 @@ nav {
   }
 
   .solution-title {
-    font-size: 1rem;
-    margin-bottom: 4px;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
   }
 
   .solution-desc {

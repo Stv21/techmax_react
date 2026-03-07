@@ -16,6 +16,7 @@ const MobilitySolutions = lazy(() => import('./components/MobilitySolutions'))
 const EnterpriseSolutions = lazy(() => import('./components/EnterpriseSolutions'))
 const AdvisorySolutions = lazy(() => import('./components/AdvisorySolutions'))
 const ProfessionalSolutions = lazy(() => import('./components/ProfessionalSolutions'))
+const MoreSolutions = lazy(() => import('./components/MoreSolutions'))
 const Careers = lazy(() => import('./components/Careers'))
 const NotFound = lazy(() => import('./components/NotFound'))
 
@@ -106,6 +107,7 @@ function App() {
           <Route path="/solutions/enterprise" element={<EnterpriseSolutions />} />
           <Route path="/solutions/advisory" element={<AdvisorySolutions />} />
           <Route path="/solutions/professional" element={<ProfessionalSolutions />} />
+          <Route path="/solutions/more" element={<MoreSolutions />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/company" element={<Company />} />
           <Route path="*" element={<NotFound />} />
